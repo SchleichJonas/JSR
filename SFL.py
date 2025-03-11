@@ -105,7 +105,7 @@ def evaluateSFLMetrics(classes, errors, table_name, grouped_headers):
         class_name = get_entries_by_base(grouped_headers, prefix + classes[i])
         Rank_Ochiai, Rank_Tarantula, Rank_New, Wasted_Effort_Ochiai, Wasted_Effort_Tarantula, Wasted_Effort_New = get_SFL_metrics(class_name, prefix + errors[i])
         fp.write(f"        {classes[i]} & {Rank_Ochiai} & {Wasted_Effort_Ochiai} & {Rank_Tarantula} & {Wasted_Effort_Tarantula} & {Rank_New} & {Wasted_Effort_New}\\\\\n")
-        fp.write("        \hline\\\n")
+        fp.write("        \hline\n")
         OverallWastedEffort[0] += Wasted_Effort_Ochiai
         OverallWastedEffort[1] += Wasted_Effort_Tarantula
         OverallWastedEffort[2] += Wasted_Effort_New
@@ -124,6 +124,10 @@ def evaluateSFLMetrics(classes, errors, table_name, grouped_headers):
         if(int(Rank_New) <= 5):
             HitRatioAt5[2] += 1
         print()
+        
+    fp.write("    \end{tabular}\n")
+    fp.write("\end{table}\n")
+    fp.close()
     
     HitRatioAt1[0] = HitRatioAt1[0] / len(classes)
     HitRatioAt1[1] = HitRatioAt1[1] / len(classes)
@@ -153,11 +157,6 @@ def evaluateSFLMetrics(classes, errors, table_name, grouped_headers):
     print("OverallWastedEffort Tarantula: " + str(OverallWastedEffort[1]))
     print("OverallWastedEffort New: " + str(OverallWastedEffort[2]))
     
-    
-    fp.write("    \hline\n")
-    fp.write("    \end{tabular}\n")
-    fp.write("\end{table}\n")
-    fp.close()
     
     print("==================================================================================")
     return HitRatioAt1, HitRatioAt5, OverallWastedEffort
@@ -192,10 +191,10 @@ if __name__ == "__main__":
     prefix = "at.tugraz.ist.stracke.jsr."
     
     classes_just_one_output = ["BMIJustOneOutput", "ExpintJustOneOutput", "FisherJustOneOutput", "GammqJustOneOutput", "LuhnJustOneOutput", "MiddleJustOneOutput", "TcasJustOneOutput"]
-    errors_just_one_output = ["BMIJustOneOutput:20", "ExpintJustOneOutput:46", "FisherJustOneOutput:15", "GammqJustOneOutput:38", "LuhnJustOneOutput:14", "MiddleJustOneOutput:6", "TcasJustOneOutput:61"]
+    errors_just_one_output = ["BMIJustOneOutput:17", "ExpintJustOneOutput:43", "FisherJustOneOutput:10", "GammqJustOneOutput:37", "LuhnJustOneOutput:14", "MiddleJustOneOutput:6", "TcasJustOneOutput:54"]
     
     classes_second_testsuite = ["Armstrong", "BubbleSort", "ChineseRemainder", "Factorial", "GCD", "InverseCounter", "Isprime", "LCM", "LogExp", "Minimax", "ModInverse", "Mult", "RSA", "RussianPeasant", "Sqrt"]
-    errors_second_testsuite = ["Armstrong:34", "BubbleSort:35", "ChineseRemainder:26", "Factorial:7", "GCD:12", "InverseCounter:12", "Isprime:10", "LCM:10", "LogExp:12", "Minimax:48", "ModInverse:28", "Mult:17", "RSA:14", "RussianPeasant:19", "Sqrt:17"]
+    errors_second_testsuite = ["Armstrong:34", "BubbleSort:35", "ChineseRemainder:26", "Factorial:7", "GCD:12", "InverseCounter:12", "Isprime:10", "LCM:10", "LogExp:12", "Minimax:48", "ModInverse:30", "Mult:17", "RSA:14", "RussianPeasant:19", "Sqrt:17"]
     
     classes_fixed = ["BMI", "Expint", "Fisher", "Gammq", "Luhn", "Middle", "Tcas"]
     errors_fixed = ["BMI:20", "Expint:46", "Fisher:15", "Gammq:38", "Luhn:14", "Middle:6", "Tcas:61"]
@@ -212,7 +211,7 @@ if __name__ == "__main__":
     createOverallResultsTable(HitRatioAt1_sliced, HitRatioAt5_sliced, OverallWastedEffort_sliced, table_name, HitRatioAt1_not_sliced, HitRatioAt5_not_sliced, OverallWastedEffort_not_sliced)
 
 
-    #table_name = "secondTable"
-    #HitRatioAt1_sliced, HitRatioAt5_sliced, OverallWastedEffort_sliced = evaluateSFLMetrics(classes_second_testsuite, errors_second_testsuite, table_name + "_sliced", grouped_headers_sliced)
-    #HitRatioAt1_not_sliced, HitRatioAt5_not_sliced, OverallWastedEffort_not_sliced = evaluateSFLMetrics(classes_second_testsuite, errors_second_testsuite, table_name + "_not_sliced", grouped_headers_not_sliced)
-    #createOverallResultsTable(HitRatioAt1_sliced, HitRatioAt5_sliced, OverallWastedEffort_sliced, table_name, HitRatioAt1_not_sliced, HitRatioAt5_not_sliced, OverallWastedEffort_not_sliced)
+    table_name = "secondTable"
+    HitRatioAt1_sliced, HitRatioAt5_sliced, OverallWastedEffort_sliced = evaluateSFLMetrics(classes_second_testsuite, errors_second_testsuite, table_name + "_sliced", grouped_headers_sliced)
+    HitRatioAt1_not_sliced, HitRatioAt5_not_sliced, OverallWastedEffort_not_sliced = evaluateSFLMetrics(classes_second_testsuite, errors_second_testsuite, table_name + "_not_sliced", grouped_headers_not_sliced)
+    createOverallResultsTable(HitRatioAt1_sliced, HitRatioAt5_sliced, OverallWastedEffort_sliced, table_name, HitRatioAt1_not_sliced, HitRatioAt5_not_sliced, OverallWastedEffort_not_sliced)
