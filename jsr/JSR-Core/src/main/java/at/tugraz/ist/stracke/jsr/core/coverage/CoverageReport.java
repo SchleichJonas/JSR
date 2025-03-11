@@ -109,6 +109,9 @@ public class CoverageReport implements Serializable {
         svTarantula = ((((double)ef)/(ef + nf))/((((double)ep)/(ep+np))+(((double)ef)/(ef+nf))));
         svNewFormula = ef + (((double)(ef-nf)/(ef+nf+ep)));
       }
+      if (Double.isNaN(svTarantula)) {
+        svTarantula = 0.0;
+      }
       coOchiaiMap.put(unit, svOchiai);
       suspicous_valuesOchiai.add(svOchiai);
       coTarantulaMap.put(unit, svTarantula);
@@ -158,18 +161,18 @@ public class CoverageReport implements Serializable {
       String className = entry.getKey();
       List<Unit> classUnits = entry.getValue();
 
-      List<Double> classSuspValuesOchiai = classUnits.stream()
+      List<Double> classSuspValuesTarantula = classUnits.stream()
                                                      .map(u -> coTarantulaMap.get(u))
                                                      .distinct()
                                                      .sorted(Comparator.reverseOrder())
                                                      .collect(Collectors.toList());
 
       int classCounter = 1;
-      for (Double svOchiai : classSuspValuesOchiai) {
+      for (Double svTarantula : classSuspValuesTarantula) {
         for (Unit unit : classUnits) {
-          if (Math.abs(coTarantulaMap.get(unit) - svOchiai) < 1e-15) {
-            if (Math.abs(svOchiai) < 1e-15) {
-              rankTarantulaMap.put(unit, classSuspValuesOchiai.size());
+          if (Math.abs(coTarantulaMap.get(unit) - svTarantula) < 1e-15) {
+            if (Math.abs(svTarantula) < 1e-15) {
+              rankTarantulaMap.put(unit, classSuspValuesTarantula.size());
             } else {
               rankTarantulaMap.put(unit, classCounter);
             }
@@ -184,18 +187,18 @@ public class CoverageReport implements Serializable {
       String className = entry.getKey();
       List<Unit> classUnits = entry.getValue();
 
-      List<Double> classSuspValuesOchiai = classUnits.stream()
+      List<Double> classSuspValuesNew = classUnits.stream()
                                                      .map(u -> coNewFormulaMap.get(u))
                                                      .distinct()
                                                      .sorted(Comparator.reverseOrder())
                                                      .collect(Collectors.toList());
 
       int classCounter = 1;
-      for (Double svOchiai : classSuspValuesOchiai) {
+      for (Double svNew : classSuspValuesNew) {
         for (Unit unit : classUnits) {
-          if (Math.abs(coNewFormulaMap.get(unit) - svOchiai) < 1e-15) {
-            if (Math.abs(svOchiai) < 1e-15) {
-              rankNewFormulaMap.put(unit, classSuspValuesOchiai.size());
+          if (Math.abs(coNewFormulaMap.get(unit) - svNew) < 1e-15) {
+            if (Math.abs(svNew) < 1e-15) {
+              rankNewFormulaMap.put(unit, classSuspValuesNew.size());
             } else {
               rankNewFormulaMap.put(unit, classCounter);
             }

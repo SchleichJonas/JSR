@@ -31,8 +31,8 @@ class BubbleSort {
   // Driver program
   public static int[] main(int arr[]){
     int n = arr.length;
-    int[] res = {}; // Error
+    int[] res = {};
     bubbleSort(arr, n);// Error
-    return res;// Error
+    return res;
   }
 }
