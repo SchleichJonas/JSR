@@ -20,6 +20,7 @@ import at.tugraz.ist.stracke.jsr.core.slicing.strategies.SlicingStrategy;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.nio.file.Path;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;

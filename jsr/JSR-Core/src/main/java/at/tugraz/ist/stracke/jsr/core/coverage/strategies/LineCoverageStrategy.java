@@ -8,6 +8,9 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import at.tugraz.ist.stracke.jsr.core.sfl.exporter.SFLMatrixCsvExporter;
+import at.tugraz.ist.stracke.jsr.core.sfl.exporter.SFLMatrixExporter;
+
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.nio.file.Path;
@@ -97,6 +100,9 @@ public class LineCoverageStrategy extends JaCoCoCoverageStrategy {
                                                      this.allUnits,
                                                      this.coveredUnits,
                                                      this.coverageData);
+
+    SFLMatrixExporter exporter = new SFLMatrixCsvExporter(report, Path.of("JSR-CLI/build/jsr/cliTest01/coverageMatrix_line_coverage"));
+    exporter.exportSFLMatrices();
 
     logger.info("Successfully created coverage report: {} of {} lines covered. Coverage score: {}",
                 report.coveredUnits.size(),

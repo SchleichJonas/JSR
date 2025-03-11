@@ -11,6 +11,9 @@ import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
+import at.tugraz.ist.stracke.jsr.core.sfl.exporter.SFLMatrixCsvExporter;
+import at.tugraz.ist.stracke.jsr.core.sfl.exporter.SFLMatrixExporter;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -21,6 +24,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.nio.file.Path;
 
 import static at.tugraz.ist.stracke.jsr.core.coverage.strategies.JaCoCoCLI.Args.*;
 import static at.tugraz.ist.stracke.jsr.core.coverage.strategies.JaCoCoCLI.FileNames.*;
@@ -127,6 +131,9 @@ abstract class JaCoCoCoverageStrategy implements CoverageStrategy {
     if (report != null && this.performCleanup) {
       this.cleanup();
     }
+
+    SFLMatrixExporter exporter = new SFLMatrixCsvExporter(report, Path.of("JSR-CLI/build/jsr/cliTest01/coverageMatrix_JaCoCoCoverage_coverage"));
+    exporter.exportSFLMatrices();
 
     return report;
   }

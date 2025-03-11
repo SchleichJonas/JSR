@@ -11,9 +11,14 @@ import at.tugraz.ist.stracke.jsr.core.slicing.result.TestSuiteSliceResult;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import at.tugraz.ist.stracke.jsr.core.sfl.exporter.SFLMatrixCsvExporter;
+import at.tugraz.ist.stracke.jsr.core.sfl.exporter.SFLMatrixExporter;
+
 import java.io.File;
 import java.util.*;
 import java.util.stream.Collectors;
+
+import java.nio.file.Path;
 
 public class CheckedCoverageStrategy implements CoverageStrategy {
 
@@ -61,6 +66,10 @@ public class CheckedCoverageStrategy implements CoverageStrategy {
                                                                                     u2.positionStart)) // only units that we marked as executable should be in here
                                                .collect(Collectors.toSet());
 
+    for (CoverageReport.Unit unit : coveredUnits) {
+      logger.info("SLICED: " + unit);
+    }
+
 
     Map<TestCase, Set<CoverageReport.Unit>> testCaseData =
       res.testCaseSlices.stream()
@@ -79,6 +88,9 @@ public class CheckedCoverageStrategy implements CoverageStrategy {
                                                allUnits,
                                                coveredUnits,
                                                testCaseData);
+
+    SFLMatrixExporter exporter = new SFLMatrixCsvExporter(report, Path.of("JSR-CLI/build/jsr/cliTest01/coverageMatrix_checked_coverage"));
+    exporter.exportSFLMatrices();
 
     logger.info("Generated Checked Coverage Report:");
     logger.info("Found {} coverable lines, {} covered lines. Coverage Score: {}",

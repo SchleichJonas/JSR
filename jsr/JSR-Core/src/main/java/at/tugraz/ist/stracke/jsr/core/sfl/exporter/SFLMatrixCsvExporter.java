@@ -103,6 +103,65 @@ public class SFLMatrixCsvExporter implements SFLMatrixExporter {
                                                      .collect(Collectors.joining(",")))
                                           .append(System.lineSeparator()));
 
+
+
+    sb.append("EF").append(",").append(table.columnKeySet().stream()
+                                            .sorted(Comparator.comparing(CoverageReport.Unit::toString))
+                                            .map(unit -> this.coverageReport.getEf(unit))
+                                            .map(String::valueOf)
+                                            .collect(Collectors.joining(","))).append(System.lineSeparator());
+
+    sb.append("NF").append(",").append(table.columnKeySet().stream()
+                                            .sorted(Comparator.comparing(CoverageReport.Unit::toString))
+                                            .map(unit -> this.coverageReport.getNf(unit))
+                                            .map(String::valueOf)
+                                            .collect(Collectors.joining(","))).append(System.lineSeparator());
+
+    sb.append("EP").append(",").append(table.columnKeySet().stream()
+                                            .sorted(Comparator.comparing(CoverageReport.Unit::toString))
+                                            .map(unit -> this.coverageReport.getEp(unit))
+                                            .map(String::valueOf)
+                                            .collect(Collectors.joining(","))).append(System.lineSeparator());
+
+    sb.append("NP").append(",").append(table.columnKeySet().stream()
+                                            .sorted(Comparator.comparing(CoverageReport.Unit::toString))
+                                            .map(unit -> this.coverageReport.getNp(unit))
+                                            .map(String::valueOf)
+                                            .collect(Collectors.joining(","))).append(System.lineSeparator());
+
+    sb.append("coOchiai").append(",").append(table.columnKeySet().stream()
+                                            .sorted(Comparator.comparing(CoverageReport.Unit::toString))
+                                            .map(unit -> this.coverageReport.getcoOchiai(unit))
+                                            .map(String::valueOf)
+                                            .collect(Collectors.joining(","))).append(System.lineSeparator());
+    sb.append("RankOchiai").append(",").append(table.columnKeySet().stream()
+                                              .sorted(Comparator.comparing(CoverageReport.Unit::toString))
+                                              .map(unit -> this.coverageReport.getrankOchiai(unit))
+                                              .map(String::valueOf)
+                                              .collect(Collectors.joining(","))).append(System.lineSeparator());
+
+    sb.append("coTarantula").append(",").append(table.columnKeySet().stream()
+            .sorted(Comparator.comparing(CoverageReport.Unit::toString))
+            .map(unit -> this.coverageReport.getcoTarantula(unit))
+            .map(String::valueOf)
+            .collect(Collectors.joining(","))).append(System.lineSeparator());
+    sb.append("RankTarantula").append(",").append(table.columnKeySet().stream()
+            .sorted(Comparator.comparing(CoverageReport.Unit::toString))
+            .map(unit -> this.coverageReport.getrankTarantula(unit))
+            .map(String::valueOf)
+            .collect(Collectors.joining(","))).append(System.lineSeparator());
+
+    sb.append("coNewFormula").append(",").append(table.columnKeySet().stream()
+            .sorted(Comparator.comparing(CoverageReport.Unit::toString))
+            .map(unit -> this.coverageReport.getcoNewFormula(unit))
+            .map(String::valueOf)
+            .collect(Collectors.joining(","))).append(System.lineSeparator());
+    sb.append("RankNewFormula").append(",").append(table.columnKeySet().stream()
+            .sorted(Comparator.comparing(CoverageReport.Unit::toString))
+            .map(unit -> this.coverageReport.getrankNewFormula(unit))
+            .map(String::valueOf)
+            .collect(Collectors.joining(","))).append(System.lineSeparator());
+
     return sb.toString();
   }
 
@@ -158,6 +217,9 @@ public class SFLMatrixCsvExporter implements SFLMatrixExporter {
 
   private boolean writeFile(Path filePath, String content) {
     try {
+      logger.info("................................................................................................................................................");
+      logger.info(filePath);
+      logger.info("................................................................................................................................................");
       Files.write(filePath, content.getBytes(StandardCharsets.UTF_8));
       return true;
     } catch (IOException e) {
