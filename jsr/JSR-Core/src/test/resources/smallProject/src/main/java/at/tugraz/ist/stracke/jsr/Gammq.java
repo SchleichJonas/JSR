@@ -79,6 +79,10 @@ public class Gammq {
     }
 
     public static void exe(double a, double x) {
+        gamser = 0;
+        gammcf = 0;
+        gln = 0;
+        result = 0;
         if (x < 0.0 || a <= 0.0) throw new RuntimeException("Invalid arguments in routine gammq");
         if (x < (a+1.0)) {
             gser(a,x);

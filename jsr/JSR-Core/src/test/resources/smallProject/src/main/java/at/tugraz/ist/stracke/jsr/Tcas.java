@@ -141,6 +141,11 @@ public class Tcas
 
     public static int testMe(int a, int b, int c, int d, int e, int f, int g, int h, int i, int j, int k, int l)
     {
+        alim = 0;
+        inhibit_biased_climb = 0;
+        non_crossing_biased_climb = false;
+        non_crossing_biased_descend = false;
+        return_value = 0;
         initialize();
         Cur_Vertical_Sep = a;
         High_Confidence = b;

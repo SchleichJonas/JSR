@@ -33,7 +33,7 @@ public class TcasTest {
     @Test
     public void tcas5() {
         Tcas.testMe(700, 1, 1, 800, 200, 1000, 0, 500, 600, 0, 1, 0);
-        Assert.assertEquals(true, Tcas.non_crossing_biased_descend);
+        Assert.assertEquals(false, Tcas.non_crossing_biased_descend);
     }
 
     @Test
@@ -54,7 +54,7 @@ public class TcasTest {
     @Test
     public void tcas9() {
         Tcas.testMe(800, 1, 1, 1200, 300, 1600, 2, 740, 500, 0, 2, 1);
-        Assert.assertEquals(true, Tcas.non_crossing_biased_climb);
+        Assert.assertEquals(false, Tcas.non_crossing_biased_climb);
     }
     @Test
     public void tcas10() {
@@ -132,12 +132,12 @@ public class TcasTest {
     @Test
     public void tcas24() {
         Tcas.testMe(800, 1, 1, 600, 100, 1100, 2, 500, 400, 0, 1, 0);
-        Assert.assertEquals(true, Tcas.non_crossing_biased_climb);
+        Assert.assertEquals(false, Tcas.non_crossing_biased_climb);
     }
     @Test
     public void tcas25() {
         Tcas.testMe(800, 1, 1, 600, 100, 1100, 2, 500, 400, 0, 1, 0);
-        Assert.assertEquals(true, Tcas.non_crossing_biased_descend);
+        Assert.assertEquals(false, Tcas.non_crossing_biased_descend);
     }
 
     @Test
@@ -184,7 +184,7 @@ public class TcasTest {
     @Test
     public void tcas34() {
         Tcas.testMe(601, 1, 1, 998, 200, 997, 0, 1000, 1001, 0, 2, 1);
-        Assert.assertEquals(true, Tcas.non_crossing_biased_climb);
+        Assert.assertEquals(false, Tcas.non_crossing_biased_climb);
     }
     @Test
     public void tcas35() {
@@ -210,11 +210,11 @@ public class TcasTest {
     @Test
     public void tcas39() {
         Tcas.testMe(601, 1, 1, 998, 200, 997, 0, 1000, 1101, 0, 2, 1);
-        Assert.assertEquals(true, Tcas.non_crossing_biased_climb);
+        Assert.assertEquals(false, Tcas.non_crossing_biased_climb);
     }
     @Test
     public void tcas40() {
         Tcas.testMe(601, 1, 1, 998, 200, 997, 0, 1000, 1101, 0, 2, 1);
-        Assert.assertEquals(true, Tcas.non_crossing_biased_descend);
+        Assert.assertEquals(false, Tcas.non_crossing_biased_descend);
     }
 }
