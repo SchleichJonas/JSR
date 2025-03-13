@@ -43,12 +43,12 @@ public class ArmstrongTest {
   @Test
   public void test6() {
     Armstrong armstrong = new Armstrong();
-    Assert.assertTrue(armstrong.main(9475));
+    Assert.assertFalse(armstrong.main(9475));
   }
 
   @Test
   public void test7() {
     Armstrong armstrong = new Armstrong();
-    Assert.assertTrue(armstrong.main(100));
+    Assert.assertFalse(armstrong.main(100));
   }
 }

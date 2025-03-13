@@ -32,7 +32,7 @@ class BubbleSort {
   public static int[] main(int arr[]){
     int n = arr.length;
     int[] res = {};
-    bubbleSort(arr, n);// Error
+    bubbleSort(arr, n);//Error
     return res;
   }
 }

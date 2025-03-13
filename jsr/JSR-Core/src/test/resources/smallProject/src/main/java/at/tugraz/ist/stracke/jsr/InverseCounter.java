@@ -9,7 +9,7 @@ class InverseCounter {
     int invCount = 0;
 
     for (int i = 0; i < n - 1; i++) {
-      for (int j = i + 1; j < n - 1; j++) { // Error
+      for (int j = i + 1; j < n - 1; j++) { //Error
 
         // If the current element is greater than the next,
         // increment the count

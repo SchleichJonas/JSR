@@ -9,7 +9,7 @@ public class Wotawa
     if(type ==0){
       float r = d / 2;
       a = r * r * pi;
-      c = r * pi;
+      c = r * pi;//Error
     } else{
       if(type == 1){
         a = d * d;

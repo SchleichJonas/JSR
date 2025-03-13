@@ -34,7 +34,7 @@ public class GammqJustOneOutput {
         d=1.0/b;
         h=d;
         for (i=1;i<=ITMAX;i++) {
-            an = i*(i-a);//an = -i*(i-a);
+            an = i*(i-a);//an = -i*(i-a);//Error
             b += 2.0;
             d=an*d+b;
             if (Math.abs(d) < FPMIN) d=FPMIN;

@@ -24,12 +24,12 @@ public class GammqJustOneOutputTest {
         Assert.assertEquals(true, Math.abs(gammq.exe(15, 2) - (0.9999999961287697)) < 1e-9);
     }
     @Test
-    public void gammqShouldFail() {
+    public void gammq4() {
         GammqJustOneOutput gammq = new GammqJustOneOutput();
         Assert.assertEquals(true, Math.abs(gammq.exe(3, 20) - (4.55514950558922e-7)) < 1e-9);
     }
     @Test
-    public void gammq4() {
+    public void gammq5() {
         GammqJustOneOutput gammq = new GammqJustOneOutput();
         Assert.assertEquals(true, Math.abs(gammq.exe(5, 5) - (0.4404933032717462)) < 1e-9);
     }

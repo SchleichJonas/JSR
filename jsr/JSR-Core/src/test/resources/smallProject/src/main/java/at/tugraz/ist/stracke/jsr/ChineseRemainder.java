@@ -23,7 +23,7 @@ class ChineseRemainder {
       // rem[j] or not (for all j from 0 to k-1)
       int j;
       for (j=0; j<k; j++ )
-        if (x%num[j] == rem[j]) // Error
+        if (x%num[j] == rem[j]) //Error
           break;
 
       // If all remainders matched, we found x

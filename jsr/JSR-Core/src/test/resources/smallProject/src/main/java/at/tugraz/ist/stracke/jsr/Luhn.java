@@ -11,7 +11,7 @@ public class Luhn {
         switch(type) {
 
             case MASTERCARD:
-                if (number.length() != 15 ||//if (number.length() != 16 ||
+                if (number.length() != 15 ||//if (number.length() != 16 ||//Error
                         Integer.parseInt(number.substring(0, 2)) < 51 ||
                         Integer.parseInt(number.substring(0, 2)) > 55)
                 {

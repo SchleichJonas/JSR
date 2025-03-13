@@ -17,7 +17,7 @@ public class BMI {
             result = "underweight";
         else if (bmi < 25)
             result = "healthy";
-        else if (bmi > 30) //else if (bmi < 30)
+        else if (bmi > 30) //else if (bmi < 30)//Error
             result = "overweight";
         else if (bmi < 40)
             result = "obese";

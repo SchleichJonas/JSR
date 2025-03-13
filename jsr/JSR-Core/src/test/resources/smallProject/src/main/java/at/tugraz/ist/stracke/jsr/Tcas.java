@@ -58,7 +58,7 @@ public class Tcas
 
     private static int Inhibit_Biased_Climb ()
     {
-        inhibit_biased_climb = ((Climb_Inhibit!=0) ? Up_Separation - NOZCROSS/1 : Up_Separation);//return ((Climb_Inhibit!=0) ? Up_Separation + NOZCROSS : Up_Separation);
+        inhibit_biased_climb = ((Climb_Inhibit!=0) ? Up_Separation - NOZCROSS/1 : Up_Separation);//return ((Climb_Inhibit!=0) ? Up_Separation + NOZCROSS : Up_Separation);//Error
         return inhibit_biased_climb;
     }
 

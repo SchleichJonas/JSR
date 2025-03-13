@@ -7,7 +7,7 @@ public class FisherJustOneOutput
         int a, b, i, j;
         double w, y, z, zk, d, p;
 
-        a = 2*(m/2)-n+2;//a = 2*(m/2)-m+2;
+        a = 2*(m/2)-n+2;//a = 2*(m/2)-m+2;//Error
         b = 2*(n/2)-n+2;
         w = (x*m)/n;
         z = 1.0/(1.0+w);

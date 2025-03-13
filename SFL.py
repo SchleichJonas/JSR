@@ -2,6 +2,7 @@ import csv
 import re
 from collections import defaultdict
 import os
+import numpy
 
 def read_csv_group_headers(file_path):
     with open(file_path, newline='', encoding='utf-8') as csvfile:
@@ -81,7 +82,18 @@ def get_SFL_metrics(class_name, error):
     return Rank_Ochiai, Rank_Tarantula, Rank_New, Wasted_Effort_Ochiai, Wasted_Effort_Tarantula, Wasted_Effort_New
 
 
-def evaluateSFLMetrics(classes, errors, table_name, grouped_headers):
+def get_error_line(class_name):
+    class_path = "./jsr/JSR-Core/src/test/resources/smallProject/src/main/java/at/tugraz/ist/stracke/jsr/"
+    with open(class_path + class_name + ".java") as fp:
+        lines = fp.readlines()
+
+
+    for i in range(len(lines)):
+        if "//Error" in lines[i]:
+            return class_name + ":" + str(i+1)
+    return -1
+
+def evaluateSFLMetrics(classes, table_name, grouped_headers):
     print("==================================================================================")
     fp = open(table_name + "Detailed.txt", "w")
     fp.write("\\begin{table}[H]\n")
@@ -95,6 +107,9 @@ def evaluateSFLMetrics(classes, errors, table_name, grouped_headers):
     fp.write("        & Rank & WE & Rank & WE & Rank & WE\\\\\n")
     fp.write("        \hline\n")
     
+    outcome_path = "jsr/JSR-CLI/build/jsr/cliTest01/coverageMatrix_checked_coverage/outcomeMatrix.csv"
+
+    outcome = numpy.loadtxt(open(outcome_path, "rb"), delimiter=",", skiprows=1, dtype=str)
     
     HitRatioAt1 = [0.0, 0.0, 0.0]
     HitRatioAt5 = [0.0, 0.0, 0.0]
@@ -102,8 +117,22 @@ def evaluateSFLMetrics(classes, errors, table_name, grouped_headers):
     
     for i in range(len(classes)):
         print("Class: " + classes[i])
+        error = str(get_error_line(classes[i]))
+        if(error == "-1"):
+            raise Exception("Line with Error was not found! Maybe add //Error to the corresponding line")
+        print("Error: " + error)
+        passing = 0
+        failing = 0
+        for line in outcome:
+            if(classes[i] + "Test" in line[0]):
+                if(line[1] == "1"):
+                    passing += 1
+                else:
+                    failing += 1
+        print("Passing Testcases: " + str(passing))
+        print("Failing Testcases: " + str(failing))
         class_name = get_entries_by_base(grouped_headers, prefix + classes[i])
-        Rank_Ochiai, Rank_Tarantula, Rank_New, Wasted_Effort_Ochiai, Wasted_Effort_Tarantula, Wasted_Effort_New = get_SFL_metrics(class_name, prefix + errors[i])
+        Rank_Ochiai, Rank_Tarantula, Rank_New, Wasted_Effort_Ochiai, Wasted_Effort_Tarantula, Wasted_Effort_New = get_SFL_metrics(class_name, prefix + error)
         fp.write(f"        {classes[i]} & {Rank_Ochiai} & {Wasted_Effort_Ochiai} & {Rank_Tarantula} & {Wasted_Effort_Tarantula} & {Rank_New} & {Wasted_Effort_New}\\\\\n")
         fp.write("        \hline\n")
         OverallWastedEffort[0] += Wasted_Effort_Ochiai
@@ -191,27 +220,42 @@ if __name__ == "__main__":
     prefix = "at.tugraz.ist.stracke.jsr."
     
     classes_just_one_output = ["BMIJustOneOutput", "ExpintJustOneOutput", "FisherJustOneOutput", "GammqJustOneOutput", "LuhnJustOneOutput", "MiddleJustOneOutput", "TcasJustOneOutput"]
-    errors_just_one_output = ["BMIJustOneOutput:17", "ExpintJustOneOutput:43", "FisherJustOneOutput:10", "GammqJustOneOutput:37", "LuhnJustOneOutput:14", "MiddleJustOneOutput:6", "TcasJustOneOutput:54"]
+    #errors_just_one_output = ["BMIJustOneOutput:17", "ExpintJustOneOutput:43", "FisherJustOneOutput:10", "GammqJustOneOutput:37", "LuhnJustOneOutput:14", "MiddleJustOneOutput:6", "TcasJustOneOutput:54"]
+    
+    classes_division_by_1 = ["BMIJustOneOutput", "ExpintDivisionBy1", "FisherJustOneOutput", "GammqJustOneOutput", "LuhnJustOneOutput", "MiddleJustOneOutput", "TcasDivisionBy1"]
+
+    classes_multiplication_by_1 = ["BMIJustOneOutput", "ExpintMultiplicationBy1", "FisherJustOneOutput", "GammqJustOneOutput", "LuhnJustOneOutput", "MiddleJustOneOutput", "TcasMultiplicationBy1"]
     
     classes_second_testsuite = ["Armstrong", "BubbleSort", "ChineseRemainder", "Factorial", "GCD", "InverseCounter", "Isprime", "LCM", "LogExp", "Minimax", "ModInverse", "Mult", "RSA", "RussianPeasant", "Sqrt"]
-    errors_second_testsuite = ["Armstrong:34", "BubbleSort:35", "ChineseRemainder:26", "Factorial:7", "GCD:12", "InverseCounter:12", "Isprime:10", "LCM:10", "LogExp:12", "Minimax:48", "ModInverse:30", "Mult:17", "RSA:14", "RussianPeasant:19", "Sqrt:17"]
+    #errors_second_testsuite = ["Armstrong:34", "BubbleSort:35", "ChineseRemainder:26", "Factorial:7", "GCD:12", "InverseCounter:12", "Isprime:10", "LCM:10", "LogExp:12", "Minimax:48", "ModInverse:30", "Mult:17", "RSA:14", "RussianPeasant:19", "Sqrt:17"]
     
     classes_fixed = ["BMI", "Expint", "Fisher", "Gammq", "Luhn", "Middle", "Tcas"]
-    errors_fixed = ["BMI:20", "Expint:46", "Fisher:15", "Gammq:38", "Luhn:14", "Middle:6", "Tcas:61"]
+    #errors_fixed = ["BMI:20", "Expint:46", "Fisher:15", "Gammq:38", "Luhn:14", "Middle:6", "Tcas:61"]
 
     
     table_name = "fixedTable"
-    HitRatioAt1_sliced, HitRatioAt5_sliced, OverallWastedEffort_sliced = evaluateSFLMetrics(classes_fixed, errors_fixed, table_name + "_sliced", grouped_headers_sliced)
-    HitRatioAt1_not_sliced, HitRatioAt5_not_sliced, OverallWastedEffort_not_sliced = evaluateSFLMetrics(classes_fixed, errors_fixed, table_name + "_not_sliced", grouped_headers_not_sliced)
+    HitRatioAt1_sliced, HitRatioAt5_sliced, OverallWastedEffort_sliced = evaluateSFLMetrics(classes_fixed, table_name + "_sliced", grouped_headers_sliced)
+    HitRatioAt1_not_sliced, HitRatioAt5_not_sliced, OverallWastedEffort_not_sliced = evaluateSFLMetrics(classes_fixed, table_name + "_not_sliced", grouped_headers_not_sliced)
     createOverallResultsTable(HitRatioAt1_sliced, HitRatioAt5_sliced, OverallWastedEffort_sliced, table_name, HitRatioAt1_not_sliced, HitRatioAt5_not_sliced, OverallWastedEffort_not_sliced)
 
     table_name = "firstTable"
-    HitRatioAt1_sliced, HitRatioAt5_sliced, OverallWastedEffort_sliced = evaluateSFLMetrics(classes_just_one_output, errors_just_one_output, table_name + "_sliced", grouped_headers_sliced)
-    HitRatioAt1_not_sliced, HitRatioAt5_not_sliced, OverallWastedEffort_not_sliced = evaluateSFLMetrics(classes_just_one_output, errors_just_one_output, table_name + "_not_sliced", grouped_headers_not_sliced)
+    HitRatioAt1_sliced, HitRatioAt5_sliced, OverallWastedEffort_sliced = evaluateSFLMetrics(classes_just_one_output, table_name + "_sliced", grouped_headers_sliced)
+    HitRatioAt1_not_sliced, HitRatioAt5_not_sliced, OverallWastedEffort_not_sliced = evaluateSFLMetrics(classes_just_one_output, table_name + "_not_sliced", grouped_headers_not_sliced)
+    createOverallResultsTable(HitRatioAt1_sliced, HitRatioAt5_sliced, OverallWastedEffort_sliced, table_name, HitRatioAt1_not_sliced, HitRatioAt5_not_sliced, OverallWastedEffort_not_sliced)
+
+    table_name = "first_division_by_1"
+    HitRatioAt1_sliced, HitRatioAt5_sliced, OverallWastedEffort_sliced = evaluateSFLMetrics(classes_division_by_1, table_name + "_sliced", grouped_headers_sliced)
+    HitRatioAt1_not_sliced, HitRatioAt5_not_sliced, OverallWastedEffort_not_sliced = evaluateSFLMetrics(classes_division_by_1, table_name + "_not_sliced", grouped_headers_not_sliced)
+    createOverallResultsTable(HitRatioAt1_sliced, HitRatioAt5_sliced, OverallWastedEffort_sliced, table_name, HitRatioAt1_not_sliced, HitRatioAt5_not_sliced, OverallWastedEffort_not_sliced)
+
+    table_name = "first_multiplication_by_1"
+    HitRatioAt1_sliced, HitRatioAt5_sliced, OverallWastedEffort_sliced = evaluateSFLMetrics(classes_multiplication_by_1, table_name + "_sliced", grouped_headers_sliced)
+    HitRatioAt1_not_sliced, HitRatioAt5_not_sliced, OverallWastedEffort_not_sliced = evaluateSFLMetrics(classes_multiplication_by_1, table_name + "_not_sliced", grouped_headers_not_sliced)
     createOverallResultsTable(HitRatioAt1_sliced, HitRatioAt5_sliced, OverallWastedEffort_sliced, table_name, HitRatioAt1_not_sliced, HitRatioAt5_not_sliced, OverallWastedEffort_not_sliced)
 
 
     table_name = "secondTable"
-    HitRatioAt1_sliced, HitRatioAt5_sliced, OverallWastedEffort_sliced = evaluateSFLMetrics(classes_second_testsuite, errors_second_testsuite, table_name + "_sliced", grouped_headers_sliced)
-    HitRatioAt1_not_sliced, HitRatioAt5_not_sliced, OverallWastedEffort_not_sliced = evaluateSFLMetrics(classes_second_testsuite, errors_second_testsuite, table_name + "_not_sliced", grouped_headers_not_sliced)
+    HitRatioAt1_sliced, HitRatioAt5_sliced, OverallWastedEffort_sliced = evaluateSFLMetrics(classes_second_testsuite, table_name + "_sliced", grouped_headers_sliced)
+    HitRatioAt1_not_sliced, HitRatioAt5_not_sliced, OverallWastedEffort_not_sliced = evaluateSFLMetrics(classes_second_testsuite, table_name + "_not_sliced", grouped_headers_not_sliced)
     createOverallResultsTable(HitRatioAt1_sliced, HitRatioAt5_sliced, OverallWastedEffort_sliced, table_name, HitRatioAt1_not_sliced, HitRatioAt5_not_sliced, OverallWastedEffort_not_sliced)
+

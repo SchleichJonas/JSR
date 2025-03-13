@@ -13,13 +13,13 @@ public class IsprimeTest {
   @Test
   public void test1() {
     Isprime isprime = new Isprime();
-    Assert.assertTrue(isprime.main(0));
+    Assert.assertFalse(isprime.main(0));
   }
 
   @Test
   public void test2() {
     Isprime isprime = new Isprime();
-    Assert.assertTrue(isprime.main(1));
+    Assert.assertFalse(isprime.main(1));
   }
 
   @Test
@@ -37,7 +37,7 @@ public class IsprimeTest {
   @Test
   public void test5() {
     Isprime isprime = new Isprime();
-    Assert.assertTrue(isprime.main(18));
+    Assert.assertFalse(isprime.main(18));
   }
 
   @Test
@@ -49,6 +49,6 @@ public class IsprimeTest {
   @Test
   public void test7() {
     Isprime isprime = new Isprime();
-    Assert.assertTrue(isprime.main(100));
+    Assert.assertFalse(isprime.main(100));
   }
 }

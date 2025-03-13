@@ -37,7 +37,7 @@ public class SqrtTest {
   @Test
   public void test5() {
     Sqrt sqrt = new Sqrt();
-    Assert.assertEquals(-50, sqrt.main(0));
+    Assert.assertEquals(0, sqrt.main(-50));
   }
 
   @Test

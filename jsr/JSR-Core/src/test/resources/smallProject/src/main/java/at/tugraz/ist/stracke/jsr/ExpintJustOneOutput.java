@@ -40,7 +40,7 @@ public class ExpintJustOneOutput
                             d=1.0/(a*d+b);
                             c=b+a/c;
                             del=c*d;
-                            h = del;//h *= del;
+                            h = del;//h *= del;//Error
 
                             if (Math.abs(del-1.0) < EPS)
                             {
