@@ -60,9 +60,9 @@ public class TcasDivisionBy1
         int upward_crossing_situation = 0;
         boolean result = false;
 
-        if(Inhibit_Biased_Climb()/1 > Down_Separation)
-            upward_preferred = 1/1;
-        if (upward_preferred/1 == 1)
+        if(Inhibit_Biased_Climb() > Down_Separation)
+            upward_preferred = 1;
+        if (upward_preferred == 1)
         {
             result = !(Own_Below_Threat()) || ((Own_Below_Threat()) && (!(Down_Separation >= ALIM())));
         }
