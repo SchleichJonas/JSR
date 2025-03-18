@@ -9,24 +9,29 @@ public class ExpintJustOneOutputTest {
     public ExpintJustOneOutputTest() {
     }
     @Test
-    public void expintShouldFail1() {
+    public void expint1() {
         ExpintJustOneOutput expint = new ExpintJustOneOutput();
         Assert.assertEquals(true, Math.abs(expint.exe(5, 2.5) - (0.01190737934637797)) < 1e-9);
     }
 
     @Test
-    public void expintShouldFail2() {
+    public void expint2() {
         ExpintJustOneOutput expint = new ExpintJustOneOutput();
         Assert.assertEquals(true, Math.abs(expint.exe(1, 10) - (4.1569689211880595e-6)) < 1e-9);
     }
     @Test
-    public void expintShouldFail3() {
+    public void expint3() {
         ExpintJustOneOutput expint = new ExpintJustOneOutput();
         Assert.assertEquals(true, Math.abs(expint.exe(7, 25) - (4.3684684836002376e-13)) < 1e-14);
     }
     @Test
-    public void expintShouldFail4() {
+    public void expint4() {
         ExpintJustOneOutput expint = new ExpintJustOneOutput();
         Assert.assertEquals(true, Math.abs(expint.exe(15, 2) - (0.00838980749776144)) < 1e-9);
+    }
+    @Test
+    public void expint5() {
+        ExpintDivisionBy1 expint = new ExpintDivisionBy1();
+        Assert.assertEquals(true, Math.abs(expint.exe(0, 10) - (4.539992976248485e-06)) < 1e-9);
     }
 }

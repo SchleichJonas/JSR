@@ -52,4 +52,15 @@ public class ExpintTest {
         Expint.exe(15, 2);
         Assert.assertEquals(true, Math.abs(Expint.del - (1.0000000814659802)) < 1e-9);
     }
+
+    @Test
+    public void expint9() {
+        Expint.exe(0, 10);
+        Assert.assertEquals(true, Math.abs(Expint.result - (4.539992976248485e-06)) < 1e-9);
+    }
+    @Test
+    public void expint10() {
+        Expint.exe(0, 10);
+        Assert.assertEquals(true, Math.abs(Expint.del - (0.0)) < 1e-9);
+    }
 }

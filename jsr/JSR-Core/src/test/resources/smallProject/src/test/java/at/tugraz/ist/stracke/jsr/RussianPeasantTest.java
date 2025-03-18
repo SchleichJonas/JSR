@@ -25,7 +25,7 @@ public class RussianPeasantTest {
   @Test
   public void test3() {
     RussianPeasant russianpeasant = new RussianPeasant();
-    Assert.assertEquals(0, russianpeasant.main(0, 45));
+    Assert.assertEquals(45, russianpeasant.main(1, 45));
   }
 
   @Test
