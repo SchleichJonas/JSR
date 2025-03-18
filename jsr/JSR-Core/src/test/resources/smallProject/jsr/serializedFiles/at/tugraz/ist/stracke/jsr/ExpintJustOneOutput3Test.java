@@ -22,7 +22,7 @@ public class ExpintJustOneOutput3Test {
     @Test
     public void expint3() {
         ExpintJustOneOutput3 expint = new ExpintJustOneOutput3();
-        Assert.assertEquals(true, Math.abs(expint.exe(7, 25) - (4.3684684836002376e-13)) < 1e-14);
+        Assert.assertEquals(true, Math.abs(expint.exe(7, 25) - (4.3684684836002376e-13)) < 1e-16);
     }
     @Test
     public void expint4() {

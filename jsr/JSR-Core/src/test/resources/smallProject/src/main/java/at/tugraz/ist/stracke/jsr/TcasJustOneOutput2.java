@@ -80,7 +80,7 @@ public class TcasJustOneOutput2
         boolean result = false;
 
         if(Inhibit_Biased_Climb() > Down_Separation)
-            upward_preferred = 0;//Error
+            upward_preferred = 1;
         if (upward_preferred == 1)
         {
             result = Own_Below_Threat() && (Cur_Vertical_Sep >= MINSEP) && (Down_Separation >= ALIM());
@@ -121,7 +121,7 @@ public class TcasJustOneOutput2
             if (need_upward_RA && need_downward_RA)
                 alt_sep = UNRESOLVED;
             else if (need_upward_RA)
-                alt_sep = UPWARD_RA;
+                alt_sep = UNRESOLVED; //Error
             else if (need_downward_RA)
                 alt_sep = DOWNWARD_RA;
             else

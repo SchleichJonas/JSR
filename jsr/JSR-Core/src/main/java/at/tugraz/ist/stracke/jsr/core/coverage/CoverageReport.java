@@ -79,9 +79,6 @@ public class CoverageReport implements Serializable {
         if(testCase.getClassName().length() > 4) {
           similar = name.equals(testCase.getClassName().substring(0, testCase.getClassName().length() - 4));
         }
-        if(testCase.getClassName().length() > 5) {
-          similar = similar || name.equals(testCase.getClassName().substring(0, testCase.getClassName().length() - 5));
-        }
         if((testCase.isPassed()) && (similar))
         {
           if(coversUnit) {

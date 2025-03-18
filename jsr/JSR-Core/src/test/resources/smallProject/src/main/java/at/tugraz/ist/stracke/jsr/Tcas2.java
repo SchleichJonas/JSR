@@ -87,7 +87,7 @@ public class Tcas2
         boolean non_crossing_biased_descend = false;
 
         if(Inhibit_Biased_Climb() > Down_Separation)
-            upward_preferred = 0;//Error
+            upward_preferred = 1;
         if (upward_preferred == 1)
         {
             non_crossing_biased_descend = Own_Below_Threat() && (Cur_Vertical_Sep >= MINSEP) && (Down_Separation >= ALIM());
@@ -128,7 +128,7 @@ public class Tcas2
             if (need_upward_RA && need_downward_RA)
                 return_value = UNRESOLVED;
             else if (need_upward_RA)
-                return_value = UPWARD_RA;
+                return_value = UNRESOLVED; //Error
             else if (need_downward_RA)
                 return_value = DOWNWARD_RA;
             else

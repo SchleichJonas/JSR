@@ -223,43 +223,60 @@ if __name__ == "__main__":
     #errors_just_one_output = ["BMIJustOneOutput:17", "ExpintJustOneOutput:43", "FisherJustOneOutput:10", "GammqJustOneOutput:37", "LuhnJustOneOutput:14", "MiddleJustOneOutput:6", "TcasJustOneOutput:54"]
     classes_just_one_output.sort()
     
-    classes_division_by_1 = ["BMIJustOneOutput", "ExpintDivisionBy1", "FisherJustOneOutput", "GammqJustOneOutput", "LuhnJustOneOutput", "MiddleJustOneOutput", "TcasDivisionBy1"]
+    classes_division_by_1 = ["BMIJustOneOutput", "ExpintDivisionBy1", "FisherJustOneOutput", "GammqJustOneOutput", "LuhnJustOneOutput", "MiddleJustOneOutput", "TcasDivisionBy1", "BMIJustOneOutput2", "ExpintJustOneOutput2", "FisherJustOneOutput2", "GammqJustOneOutput2", "LuhnJustOneOutput2", "MiddleJustOneOutput2", "TcasJustOneOutput2Division", "BMIJustOneOutput3", "ExpintJustOneOutput3", "FisherJustOneOutput3", "GammqJustOneOutput3", "TcasJustOneOutput3"]
+    #classes_division_by_1 = ["BMIJustOneOutput", "ExpintDivisionBy1", "FisherJustOneOutput", "GammqJustOneOutput", "LuhnJustOneOutput", "MiddleJustOneOutput", "TcasDivisionBy1"]
     classes_division_by_1.sort()
     
-    classes_multiplication_by_1 = ["BMIJustOneOutput", "ExpintMultiplicationBy1", "FisherJustOneOutput", "GammqJustOneOutput", "LuhnJustOneOutput", "MiddleJustOneOutput", "TcasMultiplicationBy1"]
+    classes_multiplication_by_1 = ["BMIJustOneOutput", "ExpintMultiplicationBy1", "FisherJustOneOutput", "GammqJustOneOutput", "LuhnJustOneOutput", "MiddleJustOneOutput", "TcasMultiplicationBy1", "BMIJustOneOutput2", "ExpintJustOneOutput2", "FisherJustOneOutput2", "GammqJustOneOutput2", "LuhnJustOneOutput2", "MiddleJustOneOutput2", "TcasJustOneOutput2Multiplication", "BMIJustOneOutput3", "ExpintJustOneOutput3", "FisherJustOneOutput3", "GammqJustOneOutput3", "TcasJustOneOutput3"]
+    #classes_multiplication_by_1 = ["BMIJustOneOutput", "ExpintMultiplicationBy1", "FisherJustOneOutput", "GammqJustOneOutput", "LuhnJustOneOutput", "MiddleJustOneOutput", "TcasMultiplicationBy1"]
     classes_multiplication_by_1.sort()
     
     classes_second_testsuite = ["Armstrong", "BubbleSort", "ChineseRemainder", "Factorial", "GCD", "InverseCounter", "Isprime", "LCM", "LogExp", "Minimax", "ModInverse", "Mult", "RSA", "RussianPeasant", "Sqrt"]
     #errors_second_testsuite = ["Armstrong:34", "BubbleSort:35", "ChineseRemainder:26", "Factorial:7", "GCD:12", "InverseCounter:12", "Isprime:10", "LCM:10", "LogExp:12", "Minimax:48", "ModInverse:30", "Mult:17", "RSA:14", "RussianPeasant:19", "Sqrt:17"]
     classes_second_testsuite.sort()
     
-    classes_fixed = ["BMI", "Expint", "Fisher", "Gammq", "Luhn", "Middle", "Tcas", "BMI2", "Expint2", "Fisher2", "Gammq2", "Luhn2", "Middle2", "Tcas2", "BMI3", "Expint3", "Fisher3", "Gammq3", "Tcas3"]
+    classes_fixed = ["BMI", "Expint", "Fisher", "Gammq", "Luhn", "Middle", "Tcas", "BMI2", "Expint2", "Fisher2", "Gammq2", "Luhn2", "Middle2", "BMI3", "Expint3", "Fisher3", "Gammq3", "Tcas3"]
     #errors_fixed = ["BMI:20", "Expint:46", "Fisher:15", "Gammq:38", "Luhn:14", "Middle:6", "Tcas:61"]
     classes_fixed.sort()
     
     table_name = "fixedTable"
+    print(table_name)
+    print("sliced:")
     HitRatioAt1_sliced, HitRatioAt5_sliced, OverallWastedEffort_sliced = evaluateSFLMetrics(classes_fixed, table_name + "_sliced", grouped_headers_sliced)
+    print("not sliced:")
     HitRatioAt1_not_sliced, HitRatioAt5_not_sliced, OverallWastedEffort_not_sliced = evaluateSFLMetrics(classes_fixed, table_name + "_not_sliced", grouped_headers_not_sliced)
     createOverallResultsTable(HitRatioAt1_sliced, HitRatioAt5_sliced, OverallWastedEffort_sliced, table_name, HitRatioAt1_not_sliced, HitRatioAt5_not_sliced, OverallWastedEffort_not_sliced)
 
     table_name = "firstTable"
+    print(table_name)
+    print("sliced:")
     HitRatioAt1_sliced, HitRatioAt5_sliced, OverallWastedEffort_sliced = evaluateSFLMetrics(classes_just_one_output, table_name + "_sliced", grouped_headers_sliced)
+    print("not sliced:")
     HitRatioAt1_not_sliced, HitRatioAt5_not_sliced, OverallWastedEffort_not_sliced = evaluateSFLMetrics(classes_just_one_output, table_name + "_not_sliced", grouped_headers_not_sliced)
     createOverallResultsTable(HitRatioAt1_sliced, HitRatioAt5_sliced, OverallWastedEffort_sliced, table_name, HitRatioAt1_not_sliced, HitRatioAt5_not_sliced, OverallWastedEffort_not_sliced)
 
     table_name = "first_division_by_1"
+    print(table_name)
+    print("sliced:")
     HitRatioAt1_sliced, HitRatioAt5_sliced, OverallWastedEffort_sliced = evaluateSFLMetrics(classes_division_by_1, table_name + "_sliced", grouped_headers_sliced)
+    print("not sliced:")
     HitRatioAt1_not_sliced, HitRatioAt5_not_sliced, OverallWastedEffort_not_sliced = evaluateSFLMetrics(classes_division_by_1, table_name + "_not_sliced", grouped_headers_not_sliced)
     createOverallResultsTable(HitRatioAt1_sliced, HitRatioAt5_sliced, OverallWastedEffort_sliced, table_name, HitRatioAt1_not_sliced, HitRatioAt5_not_sliced, OverallWastedEffort_not_sliced)
 
     table_name = "first_multiplication_by_1"
+    print(table_name)
+    print("sliced:")
     HitRatioAt1_sliced, HitRatioAt5_sliced, OverallWastedEffort_sliced = evaluateSFLMetrics(classes_multiplication_by_1, table_name + "_sliced", grouped_headers_sliced)
+    print("not sliced:")
     HitRatioAt1_not_sliced, HitRatioAt5_not_sliced, OverallWastedEffort_not_sliced = evaluateSFLMetrics(classes_multiplication_by_1, table_name + "_not_sliced", grouped_headers_not_sliced)
     createOverallResultsTable(HitRatioAt1_sliced, HitRatioAt5_sliced, OverallWastedEffort_sliced, table_name, HitRatioAt1_not_sliced, HitRatioAt5_not_sliced, OverallWastedEffort_not_sliced)
 
 
     table_name = "secondTable"
+    print(table_name)
+    print("sliced:")
     HitRatioAt1_sliced, HitRatioAt5_sliced, OverallWastedEffort_sliced = evaluateSFLMetrics(classes_second_testsuite, table_name + "_sliced", grouped_headers_sliced)
+    print("not sliced:")
     HitRatioAt1_not_sliced, HitRatioAt5_not_sliced, OverallWastedEffort_not_sliced = evaluateSFLMetrics(classes_second_testsuite, table_name + "_not_sliced", grouped_headers_not_sliced)
     createOverallResultsTable(HitRatioAt1_sliced, HitRatioAt5_sliced, OverallWastedEffort_sliced, table_name, HitRatioAt1_not_sliced, HitRatioAt5_not_sliced, OverallWastedEffort_not_sliced)
 
