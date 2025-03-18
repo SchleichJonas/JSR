@@ -61,7 +61,7 @@ public class TcasMultiplicationBy1
         boolean result = false;
 
         if(Inhibit_Biased_Climb()*1 > Down_Separation)
-            upward_preferred*1 = 1;
+            upward_preferred = 1*1;
         if (upward_preferred*1 == 1)
         {
             result = !(Own_Below_Threat()) || ((Own_Below_Threat()) && (!(Down_Separation >= ALIM())));
