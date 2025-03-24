@@ -93,7 +93,7 @@ def get_error_line(class_name):
             return class_name + ":" + str(i+1)
     return -1
 
-def evaluateSFLMetrics(classes, table_name, grouped_headers):
+def evaluateSFLMetrics(classes, table_name, grouped_headers, Rank_Ochiai_array = [], Rank_Tarantula_array = [], Rank_New_array = [], WE_Ochiai_array = [], WE_Tarantula_array = [], WE_New_array = [], sliced = False):
     print("==================================================================================")
     fp = open(table_name + "Detailed.txt", "w")
     fp.write("\\begin{table}[H]\n")
@@ -133,7 +133,55 @@ def evaluateSFLMetrics(classes, table_name, grouped_headers):
         print("Failing Testcases: " + str(failing))
         class_name = get_entries_by_base(grouped_headers, prefix + classes[i])
         Rank_Ochiai, Rank_Tarantula, Rank_New, Wasted_Effort_Ochiai, Wasted_Effort_Tarantula, Wasted_Effort_New = get_SFL_metrics(class_name, prefix + error)
-        fp.write(f"        {classes[i]} & {Rank_Ochiai} & {Wasted_Effort_Ochiai} & {Rank_Tarantula} & {Wasted_Effort_Tarantula} & {Rank_New} & {Wasted_Effort_New}\\\\\n")
+        
+        if(not sliced):
+            Rank_Ochiai_array.append(Rank_Ochiai)
+            Rank_Tarantula_array.append(Rank_Tarantula)
+            Rank_New_array.append(Rank_New)
+            WE_Ochiai_array.append(Wasted_Effort_Ochiai)
+            WE_Tarantula_array.append(Wasted_Effort_Tarantula)
+            WE_New_array.append(Wasted_Effort_New)
+            fp.write(f"        {classes[i]} & {Rank_Ochiai} & {Wasted_Effort_Ochiai} & {Rank_Tarantula} & {Wasted_Effort_Tarantula} & {Rank_New} & {Wasted_Effort_New}\\\\\n")
+        else:
+            Rank_Ochiai_change = ""
+            Rank_Tarantula_change = ""
+            Rank_New_change = ""
+            WE_Ochiai_change = ""
+            WE_Tarantula_change = ""
+            WE_New_change = ""
+            if(Rank_Ochiai > Rank_Ochiai_array[i]):
+                Rank_Ochiai_change = "$\\downarrow$"
+            elif(Rank_Ochiai < Rank_Ochiai_array[i]):
+                Rank_Ochiai_change = "$\\uparrow$"
+                
+            if(Rank_Tarantula > Rank_Tarantula_array[i]):
+                Rank_Tarantula_change = "$\\downarrow$"
+            elif(Rank_Tarantula < Rank_Tarantula_array[i]):
+                Rank_Tarantula_change = "$\\uparrow$"
+                
+            if(Rank_New > Rank_New_array[i]):
+                Rank_New_change = "$\\downarrow$"
+            elif(Rank_New < Rank_New_array[i]):
+                Rank_New_change = "$\\uparrow$"
+                
+                
+            if(Wasted_Effort_Ochiai > WE_Ochiai_array[i]):
+                WE_Ochiai_change = "$\\downarrow$"
+            elif(Wasted_Effort_Ochiai < WE_Ochiai_array[i]):
+                WE_Ochiai_change = "$\\uparrow$"
+                
+            if(Wasted_Effort_Tarantula > WE_Tarantula_array[i]):
+                WE_Tarantula_change = "$\\downarrow$"
+            elif(Wasted_Effort_Tarantula < WE_Tarantula_array[i]):
+                WE_Tarantula_change = "$\\uparrow$"
+                
+            if(Wasted_Effort_New > WE_New_array[i]):
+                WE_New_change = "$\\downarrow$"
+            elif(Wasted_Effort_New < WE_New_array[i]):
+                WE_New_change = "$\\uparrow$"
+            fp.write(f"        {classes[i]} & {Rank_Ochiai}{Rank_Ochiai_change} & {Wasted_Effort_Ochiai}{WE_Ochiai_change} & {Rank_Tarantula}{Rank_Tarantula_change} & {Wasted_Effort_Tarantula}{WE_Tarantula_change} & {Rank_New}{Rank_New_change} & {Wasted_Effort_New}{WE_New_change}\\\\\n")
+        
+        #fp.write(f"        {classes[i]} & {Rank_Ochiai} & {Wasted_Effort_Ochiai} & {Rank_Tarantula} & {Wasted_Effort_Tarantula} & {Rank_New} & {Wasted_Effort_New}\\\\\n")
         fp.write("        \hline\n")
         OverallWastedEffort[0] += Wasted_Effort_Ochiai
         OverallWastedEffort[1] += Wasted_Effort_Tarantula
@@ -188,7 +236,7 @@ def evaluateSFLMetrics(classes, table_name, grouped_headers):
     
     
     print("==================================================================================")
-    return HitRatioAt1, HitRatioAt5, OverallWastedEffort
+    return HitRatioAt1, HitRatioAt5, OverallWastedEffort, Rank_Ochiai_array, Rank_Tarantula_array, Rank_New_array, WE_Ochiai_array, WE_Tarantula_array, WE_New_array
 
 def createOverallResultsTable(HitRatioAt1, HitRatioAt5, OverallWastedEffort, table_name, HitRatioAt1_not_sliced, HitRatioAt5_not_sliced, OverallWastedEffort_not_sliced):
     fp = open(table_name + ".txt", "w")
@@ -223,13 +271,31 @@ if __name__ == "__main__":
     #errors_just_one_output = ["BMIJustOneOutput:17", "ExpintJustOneOutput:43", "FisherJustOneOutput:10", "GammqJustOneOutput:37", "LuhnJustOneOutput:14", "MiddleJustOneOutput:6", "TcasJustOneOutput:54"]
     classes_just_one_output.sort()
     
+    classes_just_one_output_except_expint_and_tcas = ["BMIJustOneOutput", "FisherJustOneOutput", "GammqJustOneOutput", "LuhnJustOneOutput", "MiddleJustOneOutput", "BMIJustOneOutput2", "ExpintJustOneOutput2", "FisherJustOneOutput2", "GammqJustOneOutput2", "LuhnJustOneOutput2", "MiddleJustOneOutput2", "TcasJustOneOutput2", "BMIJustOneOutput3", "ExpintJustOneOutput3", "FisherJustOneOutput3", "GammqJustOneOutput3"]
+    #errors_just_one_output = ["BMIJustOneOutput:17", "ExpintJustOneOutput:43", "FisherJustOneOutput:10", "GammqJustOneOutput:37", "LuhnJustOneOutput:14", "MiddleJustOneOutput:6", "TcasJustOneOutput:54"]
+    classes_just_one_output_except_expint_and_tcas.sort()
+    
     classes_division_by_1 = ["BMIJustOneOutput", "ExpintDivisionBy1", "FisherJustOneOutput", "GammqJustOneOutput", "LuhnJustOneOutput", "MiddleJustOneOutput", "TcasDivisionBy1", "BMIJustOneOutput2", "ExpintJustOneOutput2", "FisherJustOneOutput2", "GammqJustOneOutput2", "LuhnJustOneOutput2", "MiddleJustOneOutput2", "TcasJustOneOutput2", "BMIJustOneOutput3", "ExpintJustOneOutput3", "FisherJustOneOutput3", "GammqJustOneOutput3"]
     #classes_division_by_1 = ["BMIJustOneOutput", "ExpintDivisionBy1", "FisherJustOneOutput", "GammqJustOneOutput", "LuhnJustOneOutput", "MiddleJustOneOutput", "TcasDivisionBy1"]
     classes_division_by_1.sort()
     
+    classes_division_by_1_justExpint = ["BMIJustOneOutput", "ExpintDivisionBy1", "FisherJustOneOutput", "GammqJustOneOutput", "LuhnJustOneOutput", "MiddleJustOneOutput", "TcasJustOneOutput", "BMIJustOneOutput2", "ExpintJustOneOutput2", "FisherJustOneOutput2", "GammqJustOneOutput2", "LuhnJustOneOutput2", "MiddleJustOneOutput2", "TcasJustOneOutput2", "BMIJustOneOutput3", "ExpintJustOneOutput3", "FisherJustOneOutput3", "GammqJustOneOutput3"]
+    #classes_division_by_1 = ["BMIJustOneOutput", "ExpintDivisionBy1", "FisherJustOneOutput", "GammqJustOneOutput", "LuhnJustOneOutput", "MiddleJustOneOutput", "TcasDivisionBy1"]
+    classes_division_by_1_justExpint.sort()
+    
     classes_multiplication_by_1 = ["BMIJustOneOutput", "ExpintMultiplicationBy1", "FisherJustOneOutput", "GammqJustOneOutput", "LuhnJustOneOutput", "MiddleJustOneOutput", "TcasMultiplicationBy1", "BMIJustOneOutput2", "ExpintJustOneOutput2", "FisherJustOneOutput2", "GammqJustOneOutput2", "LuhnJustOneOutput2", "MiddleJustOneOutput2", "TcasJustOneOutput2", "BMIJustOneOutput3", "ExpintJustOneOutput3", "FisherJustOneOutput3", "GammqJustOneOutput3"]
     #classes_multiplication_by_1 = ["BMIJustOneOutput", "ExpintMultiplicationBy1", "FisherJustOneOutput", "GammqJustOneOutput", "LuhnJustOneOutput", "MiddleJustOneOutput", "TcasMultiplicationBy1"]
     classes_multiplication_by_1.sort()
+   
+    classes_multiplication = ["BMIJustOneOutput", "ExpintMultiplicationBy1", "FisherJustOneOutput", "GammqJustOneOutput", "LuhnJustOneOutput", "MiddleJustOneOutput", "TcasMultiplication", "BMIJustOneOutput2", "ExpintJustOneOutput2", "FisherJustOneOutput2", "GammqJustOneOutput2", "LuhnJustOneOutput2", "MiddleJustOneOutput2", "TcasJustOneOutput2", "BMIJustOneOutput3", "ExpintJustOneOutput3", "FisherJustOneOutput3", "GammqJustOneOutput3"]
+    #classes_multiplication_by_1 = ["BMIJustOneOutput", "ExpintMultiplicationBy1", "FisherJustOneOutput", "GammqJustOneOutput", "LuhnJustOneOutput", "MiddleJustOneOutput", "TcasMultiplicationBy1"]
+    classes_multiplication.sort()
+
+   
+    
+    classes_multiplication_by_1_justExpint = ["BMIJustOneOutput", "ExpintMultiplicationBy1", "FisherJustOneOutput", "GammqJustOneOutput", "LuhnJustOneOutput", "MiddleJustOneOutput", "TcasJustOneOutput", "BMIJustOneOutput2", "ExpintJustOneOutput2", "FisherJustOneOutput2", "GammqJustOneOutput2", "LuhnJustOneOutput2", "MiddleJustOneOutput2", "TcasJustOneOutput2", "BMIJustOneOutput3", "ExpintJustOneOutput3", "FisherJustOneOutput3", "GammqJustOneOutput3"]
+    #classes_division_by_1 = ["BMIJustOneOutput", "ExpintDivisionBy1", "FisherJustOneOutput", "GammqJustOneOutput", "LuhnJustOneOutput", "MiddleJustOneOutput", "TcasDivisionBy1"]
+    classes_multiplication_by_1_justExpint.sort()
     
     classes_second_testsuite = ["Armstrong", "BubbleSort", "ChineseRemainder", "Factorial", "GCD", "InverseCounter", "Isprime", "LCM", "LogExp", "Minimax", "ModInverse", "Mult", "RSA", "RussianPeasant", "Sqrt"]
     #errors_second_testsuite = ["Armstrong:34", "BubbleSort:35", "ChineseRemainder:26", "Factorial:7", "GCD:12", "InverseCounter:12", "Isprime:10", "LCM:10", "LogExp:12", "Minimax:48", "ModInverse:30", "Mult:17", "RSA:14", "RussianPeasant:19", "Sqrt:17"]
@@ -241,42 +307,86 @@ if __name__ == "__main__":
     
     table_name = "fixedTable"
     print(table_name)
-    print("sliced:")
-    HitRatioAt1_sliced, HitRatioAt5_sliced, OverallWastedEffort_sliced = evaluateSFLMetrics(classes_fixed, table_name + "_sliced", grouped_headers_sliced)
     print("not sliced:")
-    HitRatioAt1_not_sliced, HitRatioAt5_not_sliced, OverallWastedEffort_not_sliced = evaluateSFLMetrics(classes_fixed, table_name + "_not_sliced", grouped_headers_not_sliced)
+    HitRatioAt1_not_sliced, HitRatioAt5_not_sliced, OverallWastedEffort_not_sliced, Rank_Ochiai_array, Rank_Tarantula_array, Rank_New_array, WE_Ochiai_array, WE_Tarantula_array, WE_New_array = evaluateSFLMetrics(classes_fixed, table_name + "_not_sliced", grouped_headers_not_sliced, [], [], [], [], [], [], False)
+    print("sliced:")
+    HitRatioAt1_sliced, HitRatioAt5_sliced, OverallWastedEffort_sliced, Rank_Ochiai_array, Rank_Tarantula_array, Rank_New_array, WE_Ochiai_array, WE_Tarantula_array, WE_New_array = evaluateSFLMetrics(classes_fixed, table_name + "_sliced", grouped_headers_sliced, Rank_Ochiai_array, Rank_Tarantula_array, Rank_New_array, WE_Ochiai_array, WE_Tarantula_array, WE_New_array, True)
     createOverallResultsTable(HitRatioAt1_sliced, HitRatioAt5_sliced, OverallWastedEffort_sliced, table_name, HitRatioAt1_not_sliced, HitRatioAt5_not_sliced, OverallWastedEffort_not_sliced)
+    Rank_Ochiai_array, Rank_Tarantula_array, Rank_New_array, WE_Ochiai_array, WE_Tarantula_array, WE_New_array = [], [], [], [], [], []
 
     table_name = "firstTable"
     print(table_name)
-    print("sliced:")
-    HitRatioAt1_sliced, HitRatioAt5_sliced, OverallWastedEffort_sliced = evaluateSFLMetrics(classes_just_one_output, table_name + "_sliced", grouped_headers_sliced)
     print("not sliced:")
-    HitRatioAt1_not_sliced, HitRatioAt5_not_sliced, OverallWastedEffort_not_sliced = evaluateSFLMetrics(classes_just_one_output, table_name + "_not_sliced", grouped_headers_not_sliced)
+    HitRatioAt1_not_sliced, HitRatioAt5_not_sliced, OverallWastedEffort_not_sliced, Rank_Ochiai_array, Rank_Tarantula_array, Rank_New_array, WE_Ochiai_array, WE_Tarantula_array, WE_New_array = evaluateSFLMetrics(classes_just_one_output, table_name + "_not_sliced", grouped_headers_not_sliced, [], [], [], [], [], [], False)
+    print("sliced:")
+    HitRatioAt1_sliced, HitRatioAt5_sliced, OverallWastedEffort_sliced, Rank_Ochiai_array, Rank_Tarantula_array, Rank_New_array, WE_Ochiai_array, WE_Tarantula_array, WE_New_array = evaluateSFLMetrics(classes_just_one_output, table_name + "_sliced", grouped_headers_sliced, Rank_Ochiai_array, Rank_Tarantula_array, Rank_New_array, WE_Ochiai_array, WE_Tarantula_array, WE_New_array, True)
     createOverallResultsTable(HitRatioAt1_sliced, HitRatioAt5_sliced, OverallWastedEffort_sliced, table_name, HitRatioAt1_not_sliced, HitRatioAt5_not_sliced, OverallWastedEffort_not_sliced)
+    Rank_Ochiai_array, Rank_Tarantula_array, Rank_New_array, WE_Ochiai_array, WE_Tarantula_array, WE_New_array = [], [], [], [], [], []
+    
+    table_name = "firstTable_without_expint_and_tcas"
+    print(table_name)
+    print("not sliced:")
+    HitRatioAt1_not_sliced, HitRatioAt5_not_sliced, OverallWastedEffort_not_sliced, Rank_Ochiai_array, Rank_Tarantula_array, Rank_New_array, WE_Ochiai_array, WE_Tarantula_array, WE_New_array = evaluateSFLMetrics(classes_just_one_output_except_expint_and_tcas, table_name + "_not_sliced", grouped_headers_not_sliced, [], [], [], [], [], [], False)
+    print("sliced:")
+    HitRatioAt1_sliced, HitRatioAt5_sliced, OverallWastedEffort_sliced, Rank_Ochiai_array, Rank_Tarantula_array, Rank_New_array, WE_Ochiai_array, WE_Tarantula_array, WE_New_array = evaluateSFLMetrics(classes_just_one_output_except_expint_and_tcas, table_name + "_sliced", grouped_headers_sliced, Rank_Ochiai_array, Rank_Tarantula_array, Rank_New_array, WE_Ochiai_array, WE_Tarantula_array, WE_New_array, True)
+    createOverallResultsTable(HitRatioAt1_sliced, HitRatioAt5_sliced, OverallWastedEffort_sliced, table_name, HitRatioAt1_not_sliced, HitRatioAt5_not_sliced, OverallWastedEffort_not_sliced)
+    Rank_Ochiai_array, Rank_Tarantula_array, Rank_New_array, WE_Ochiai_array, WE_Tarantula_array, WE_New_array = [], [], [], [], [], []
 
+    table_name = "first_division_by_1_justExpint"
+    print(table_name)
+    print("not sliced:")
+    HitRatioAt1_not_sliced, HitRatioAt5_not_sliced, OverallWastedEffort_not_sliced, Rank_Ochiai_array, Rank_Tarantula_array, Rank_New_array, WE_Ochiai_array, WE_Tarantula_array, WE_New_array = evaluateSFLMetrics(classes_division_by_1_justExpint, table_name + "_not_sliced", grouped_headers_not_sliced, [], [], [], [], [], [], False)
+    print("sliced:")
+    HitRatioAt1_sliced, HitRatioAt5_sliced, OverallWastedEffort_sliced, Rank_Ochiai_array, Rank_Tarantula_array, Rank_New_array, WE_Ochiai_array, WE_Tarantula_array, WE_New_array = evaluateSFLMetrics(classes_division_by_1_justExpint, table_name + "_sliced", grouped_headers_sliced, Rank_Ochiai_array, Rank_Tarantula_array, Rank_New_array, WE_Ochiai_array, WE_Tarantula_array, WE_New_array, True)
+    createOverallResultsTable(HitRatioAt1_sliced, HitRatioAt5_sliced, OverallWastedEffort_sliced, table_name, HitRatioAt1_not_sliced, HitRatioAt5_not_sliced, OverallWastedEffort_not_sliced)
+    Rank_Ochiai_array, Rank_Tarantula_array, Rank_New_array, WE_Ochiai_array, WE_Tarantula_array, WE_New_array = [], [], [], [], [], []
+
+    
     table_name = "first_division_by_1"
     print(table_name)
-    print("sliced:")
-    HitRatioAt1_sliced, HitRatioAt5_sliced, OverallWastedEffort_sliced = evaluateSFLMetrics(classes_division_by_1, table_name + "_sliced", grouped_headers_sliced)
     print("not sliced:")
-    HitRatioAt1_not_sliced, HitRatioAt5_not_sliced, OverallWastedEffort_not_sliced = evaluateSFLMetrics(classes_division_by_1, table_name + "_not_sliced", grouped_headers_not_sliced)
+    HitRatioAt1_not_sliced, HitRatioAt5_not_sliced, OverallWastedEffort_not_sliced, Rank_Ochiai_array, Rank_Tarantula_array, Rank_New_array, WE_Ochiai_array, WE_Tarantula_array, WE_New_array = evaluateSFLMetrics(classes_division_by_1, table_name + "_not_sliced", grouped_headers_not_sliced, [], [], [], [], [], [], False)
+    print("sliced:")
+    HitRatioAt1_sliced, HitRatioAt5_sliced, OverallWastedEffort_sliced, Rank_Ochiai_array, Rank_Tarantula_array, Rank_New_array, WE_Ochiai_array, WE_Tarantula_array, WE_New_array = evaluateSFLMetrics(classes_division_by_1, table_name + "_sliced", grouped_headers_sliced, Rank_Ochiai_array, Rank_Tarantula_array, Rank_New_array, WE_Ochiai_array, WE_Tarantula_array, WE_New_array, True)
     createOverallResultsTable(HitRatioAt1_sliced, HitRatioAt5_sliced, OverallWastedEffort_sliced, table_name, HitRatioAt1_not_sliced, HitRatioAt5_not_sliced, OverallWastedEffort_not_sliced)
+    Rank_Ochiai_array, Rank_Tarantula_array, Rank_New_array, WE_Ochiai_array, WE_Tarantula_array, WE_New_array = [], [], [], [], [], []
 
+
+
+
+    table_name = "first_multiplicationls_by_1_justExpint"
+    print(table_name)
+    print("not sliced:")
+    HitRatioAt1_not_sliced, HitRatioAt5_not_sliced, OverallWastedEffort_not_sliced, Rank_Ochiai_array, Rank_Tarantula_array, Rank_New_array, WE_Ochiai_array, WE_Tarantula_array, WE_New_array = evaluateSFLMetrics(classes_multiplication_by_1_justExpint, table_name + "_not_sliced", grouped_headers_not_sliced, [], [], [], [], [], [], False)
+    print("sliced:")
+    HitRatioAt1_sliced, HitRatioAt5_sliced, OverallWastedEffort_sliced, Rank_Ochiai_array, Rank_Tarantula_array, Rank_New_array, WE_Ochiai_array, WE_Tarantula_array, WE_New_array = evaluateSFLMetrics(classes_multiplication_by_1_justExpint, table_name + "_sliced", grouped_headers_sliced, Rank_Ochiai_array, Rank_Tarantula_array, Rank_New_array, WE_Ochiai_array, WE_Tarantula_array, WE_New_array, True)
+    createOverallResultsTable(HitRatioAt1_sliced, HitRatioAt5_sliced, OverallWastedEffort_sliced, table_name, HitRatioAt1_not_sliced, HitRatioAt5_not_sliced, OverallWastedEffort_not_sliced)
+    Rank_Ochiai_array, Rank_Tarantula_array, Rank_New_array, WE_Ochiai_array, WE_Tarantula_array, WE_New_array = [], [], [], [], [], []
+    
     table_name = "first_multiplication_by_1"
     print(table_name)
-    print("sliced:")
-    HitRatioAt1_sliced, HitRatioAt5_sliced, OverallWastedEffort_sliced = evaluateSFLMetrics(classes_multiplication_by_1, table_name + "_sliced", grouped_headers_sliced)
     print("not sliced:")
-    HitRatioAt1_not_sliced, HitRatioAt5_not_sliced, OverallWastedEffort_not_sliced = evaluateSFLMetrics(classes_multiplication_by_1, table_name + "_not_sliced", grouped_headers_not_sliced)
+    HitRatioAt1_not_sliced, HitRatioAt5_not_sliced, OverallWastedEffort_not_sliced, Rank_Ochiai_array, Rank_Tarantula_array, Rank_New_array, WE_Ochiai_array, WE_Tarantula_array, WE_New_array = evaluateSFLMetrics(classes_multiplication_by_1, table_name + "_not_sliced", grouped_headers_not_sliced, [], [], [], [], [], [], False)
+    print("sliced:")
+    HitRatioAt1_sliced, HitRatioAt5_sliced, OverallWastedEffort_sliced, Rank_Ochiai_array, Rank_Tarantula_array, Rank_New_array, WE_Ochiai_array, WE_Tarantula_array, WE_New_array = evaluateSFLMetrics(classes_multiplication_by_1, table_name + "_sliced", grouped_headers_sliced, Rank_Ochiai_array, Rank_Tarantula_array, Rank_New_array, WE_Ochiai_array, WE_Tarantula_array, WE_New_array, True)
     createOverallResultsTable(HitRatioAt1_sliced, HitRatioAt5_sliced, OverallWastedEffort_sliced, table_name, HitRatioAt1_not_sliced, HitRatioAt5_not_sliced, OverallWastedEffort_not_sliced)
+    Rank_Ochiai_array, Rank_Tarantula_array, Rank_New_array, WE_Ochiai_array, WE_Tarantula_array, WE_New_array = [], [], [], [], [], []
+
+    table_name = "first_multiplication"
+    print(table_name)
+    print("not sliced:")
+    HitRatioAt1_not_sliced, HitRatioAt5_not_sliced, OverallWastedEffort_not_sliced, Rank_Ochiai_array, Rank_Tarantula_array, Rank_New_array, WE_Ochiai_array, WE_Tarantula_array, WE_New_array = evaluateSFLMetrics(classes_multiplication, table_name + "_not_sliced", grouped_headers_not_sliced, [], [], [], [], [], [], False)
+    print("sliced:")
+    HitRatioAt1_sliced, HitRatioAt5_sliced, OverallWastedEffort_sliced, Rank_Ochiai_array, Rank_Tarantula_array, Rank_New_array, WE_Ochiai_array, WE_Tarantula_array, WE_New_array = evaluateSFLMetrics(classes_multiplication, table_name + "_sliced", grouped_headers_sliced, Rank_Ochiai_array, Rank_Tarantula_array, Rank_New_array, WE_Ochiai_array, WE_Tarantula_array, WE_New_array, True)
+    createOverallResultsTable(HitRatioAt1_sliced, HitRatioAt5_sliced, OverallWastedEffort_sliced, table_name, HitRatioAt1_not_sliced, HitRatioAt5_not_sliced, OverallWastedEffort_not_sliced)
+    Rank_Ochiai_array, Rank_Tarantula_array, Rank_New_array, WE_Ochiai_array, WE_Tarantula_array, WE_New_array = [], [], [], [], [], []
 
 
     table_name = "secondTable"
     print(table_name)
-    print("sliced:")
-    HitRatioAt1_sliced, HitRatioAt5_sliced, OverallWastedEffort_sliced = evaluateSFLMetrics(classes_second_testsuite, table_name + "_sliced", grouped_headers_sliced)
     print("not sliced:")
-    HitRatioAt1_not_sliced, HitRatioAt5_not_sliced, OverallWastedEffort_not_sliced = evaluateSFLMetrics(classes_second_testsuite, table_name + "_not_sliced", grouped_headers_not_sliced)
+    HitRatioAt1_not_sliced, HitRatioAt5_not_sliced, OverallWastedEffort_not_sliced, Rank_Ochiai_array, Rank_Tarantula_array, Rank_New_array, WE_Ochiai_array, WE_Tarantula_array, WE_New_array = evaluateSFLMetrics(classes_second_testsuite, table_name + "_not_sliced", grouped_headers_not_sliced, [], [], [], [], [], [], False)
+    print("sliced:")
+    HitRatioAt1_sliced, HitRatioAt5_sliced, OverallWastedEffort_sliced, Rank_Ochiai_array, Rank_Tarantula_array, Rank_New_array, WE_Ochiai_array, WE_Tarantula_array, WE_New_array = evaluateSFLMetrics(classes_second_testsuite, table_name + "_sliced", grouped_headers_sliced, Rank_Ochiai_array, Rank_Tarantula_array, Rank_New_array, WE_Ochiai_array, WE_Tarantula_array, WE_New_array, True)
     createOverallResultsTable(HitRatioAt1_sliced, HitRatioAt5_sliced, OverallWastedEffort_sliced, table_name, HitRatioAt1_not_sliced, HitRatioAt5_not_sliced, OverallWastedEffort_not_sliced)
-
+    Rank_Ochiai_array, Rank_Tarantula_array, Rank_New_array, WE_Ochiai_array, WE_Tarantula_array, WE_New_array = [], [], [], [], [], []
