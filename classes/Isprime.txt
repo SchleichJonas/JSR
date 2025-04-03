@@ -1,0 +1,7 @@
+main(0)
+main(1)
+main(2)
+main(17)
+main(18)
+main(97)
+main(100)

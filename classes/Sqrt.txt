@@ -1,0 +1,7 @@
+main(4)
+main(10)
+main(16)
+main(25)
+main(-50)
+main(1)
+main(0)

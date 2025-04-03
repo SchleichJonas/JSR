@@ -1,0 +1,825 @@
+Armstrong
+& main(0) & True & True\\
+& main(1) & True & False\\
+& main(153) & True & False\\
+& main(370) & True & False\\
+& main(9474) & True & False\\
+& main(9475) & False & False\\
+& main(100) & False & False\\
+Passing Testcases: 3
+Failing Testcases: 4
+
+BMI
+& calculateBMICategory(1.70,30) & result=underweight & result=underweight\\
+& calculateBMICategory(1.70,30) & bmi_score=10.380622837370243 & bmi_score=10.380622837370243\\
+& calculateBMICategory(1.70,60) & result=healthy & result=healthy\\
+& calculateBMICategory(1.70,60) & bmi_score=20.761245674740486 & bmi_score=20.761245674740486\\
+& calculateBMICategory(1.70,80) & result=overweight & result=obese\\
+& calculateBMICategory(1.70,80) & bmi_score=27.68166089965398 & bmi_score=27.68166089965398\\
+& calculateBMICategory(1.70,100) & result=obese & result=overweight\\
+& calculateBMICategory(1.70,100) & bmi_score=34.602076124567475 & bmi_score=34.602076124567475\\
+& calculateBMICategory(1.70,150) & result=very obese & result=overweight\\
+& calculateBMICategory(1.70,150) & bmi_score=51.90311418685122 & bmi_score=51.90311418685122\\
+Passing Testcases: 7
+Failing Testcases: 3
+
+BMI2
+& calculateBMICategory(1.70,30) & result=underweight & result=underweight\\
+& calculateBMICategory(1.70,30) & bmi_score=10.380622837370243 & bmi_score=17.647058823529413\\
+& calculateBMICategory(1.70,60) & result=healthy & result=obese\\
+& calculateBMICategory(1.70,60) & bmi_score=20.761245674740486 & bmi_score=35.294117647058826\\
+& calculateBMICategory(1.70,80) & result=overweight & result=very obese\\
+& calculateBMICategory(1.70,80) & bmi_score=27.68166089965398 & bmi_score=47.05882352941177\\
+& calculateBMICategory(1.70,100) & result=obese & result=very obese\\
+& calculateBMICategory(1.70,100) & bmi_score=34.602076124567475 & bmi_score=58.82352941176471\\
+& calculateBMICategory(1.70,150) & result=very obese & result=very obese\\
+& calculateBMICategory(1.70,150) & bmi_score=51.90311418685122 & bmi_score=88.23529411764706\\
+Passing Testcases: 2
+Failing Testcases: 8
+
+BMI3
+& calculateBMICategory(1.70,30) & result=underweight & result=underweight\\
+& calculateBMICategory(1.70,30) & bmi_score=10.380622837370243 & bmi_score=0.0018888888888888887\\
+& calculateBMICategory(1.70,60) & result=healthy & result=underweight\\
+& calculateBMICategory(1.70,60) & bmi_score=20.761245674740486 & bmi_score=0.0004722222222222222\\
+& calculateBMICategory(1.70,80) & result=overweight & result=underweight\\
+& calculateBMICategory(1.70,80) & bmi_score=27.68166089965398 & bmi_score=0.000265625\\
+& calculateBMICategory(1.70,100) & result=obese & result=underweight\\
+& calculateBMICategory(1.70,100) & bmi_score=34.602076124567475 & bmi_score=0.00016999999999999999\\
+& calculateBMICategory(1.70,150) & result=very obese & result=underweight\\
+& calculateBMICategory(1.70,150) & bmi_score=51.90311418685122 & bmi_score=7.555555555555556e-05\\
+Passing Testcases: 1
+Failing Testcases: 9
+
+BMIJustOneOutput
+& calculateBMI(1.70,60) & 20.761245674740486 & 20.761245674740486\\
+& calculateBMICategory(1.70,30) & underweight & underweight\\
+& calculateBMICategory(1.70,60) & healthy & healthy\\
+& calculateBMICategory(1.70,80) & overweight & obese\\
+& calculateBMICategory(1.70,100) & obese & overweight\\
+& calculateBMICategory(1.70,150) & very obese & overweight\\
+Passing Testcases: 3
+Failing Testcases: 3
+
+BMIJustOneOutput2
+& calculateBMI(1.70,60) & 20.761245674740486 & 35.294117647058826\\
+& calculateBMICategory(1.70,30) & underweight & underweight\\
+& calculateBMICategory(1.70,60) & healthy & obese\\
+& calculateBMICategory(1.70,80) & overweight & very obese\\
+& calculateBMICategory(1.70,100) & obese & very obese\\
+& calculateBMICategory(1.70,150) & very obese & very obese\\
+Passing Testcases: 2
+Failing Testcases: 4
+
+BMIJustOneOutput3
+& calculateBMI(1.70,60) & 20.761245674740486 & 20.761245674740486\\
+& calculateBMICategory(1.70,30) & underweight & underweight\\
+& calculateBMICategory(1.70,60) & healthy & underweight\\
+& calculateBMICategory(1.70,80) & overweight & underweight\\
+& calculateBMICategory(1.70,100) & obese & underweight\\
+& calculateBMICategory(1.70,150) & very obese & underweight\\
+Passing Testcases: 2
+Failing Testcases: 4
+
+BubbleSort
+& main([5, 2, 9, 1, 5, 6]) & [1, 2, 5, 5, 6, 9] & []\\
+& main([3, 8, 2, 4]) & [2, 3, 4, 8] & []\\
+& main([10, 9, 8, 7, 6, 5]) & [5, 6, 7, 8, 9, 10] & []\\
+& main([1, 2, 3, 4, 5]) & [1, 2, 3, 4, 5] & []\\
+& main([3]) & [3] & []\\
+& main([4, 4, 4, 4, 4]) & [4, 4, 4, 4, 4] & []\\
+& main([-3, -1, -2, 5, 0]) & [-3, -2, -1, 0, 5] & []\\
+Passing Testcases: 0
+Failing Testcases: 7
+
+ChineseRemainder
+& main([3,5], [2,3]) & 8 & 1\\
+& main([3,7,8], [1,4,6]) & 46 & 2\\
+& main([3,7,11,13], [2,5,7,9]) & 425 & 1\\
+& main([35], [3]) & 3 & 1\\
+& main([5,11,13], [3,7,1]) & 183 & 2\\
+& main([7,13,19,23,29], [6,9,12,15,18]) & 1064202 & 1\\
+& main([2,3,5,7,11,13], [1,1,1,1,1,1]) & 1 & 2\\
+Passing Testcases: 0
+Failing Testcases: 7
+
+Expint
+& exe(5, 2.5) & result=0.01190737934637797 & result=0.08208500310325707\\
+& exe(5, 2.5) & del_=1.0000000545697552 & del_=1.0000000545697552\\
+& exe(1, 10) & result=4.1569689211880595e-06 & result=4.5399930721494425e-05\\
+& exe(1, 10) & del_=1.0000000211235915 & del_=1.0000000211235915\\
+& exe(7, 25) & result=4.3684684836002376e-13 & result=1.3887944535740299e-11\\
+& exe(7, 25) & del_=1.0000000482991784 & del_=1.0000000482991784\\
+& exe(15, 2) & result=0.00838980749776144 & result=0.13533529426183422\\
+& exe(15, 2) & del_=1.0000000814659802 & del_=1.0000000814659802\\
+& exe(0, 10) & result=4.539992976248485e-06 & result=4.539992976248485e-06\\
+& exe(0, 10) & del_=0.0 & del_=0.0\\
+Passing Testcases: 6
+Failing Testcases: 4
+
+Expint2
+& exe(5, 2.5) & result=0.01190737934637797 & result=1.7672117854287284\\
+& exe(5, 2.5) & del_=1.0000000545697552 & del_=1.0000000545697552\\
+& exe(1, 10) & result=4.1569689211880595e-06 & result=2016.81663896063\\
+& exe(1, 10) & del_=1.0000000211235915 & del_=1.0000000211235915\\
+& exe(7, 25) & result=4.3684684836002376e-13 & result=2264922269.8380537\\
+& exe(7, 25) & del_=1.0000000482991784 & del_=1.0000000482991784\\
+& exe(15, 2) & result=0.00838980749776144 & result=0.45806796851197756\\
+& exe(15, 2) & del_=1.0000000814659802 & del_=1.0000000814659802\\
+& exe(0, 10) & result=4.539992976248485e-06 & result=4.539992976248485e-06\\
+& exe(0, 10) & del_=0.0 & del_=0.0\\
+Passing Testcases: 6
+Failing Testcases: 4
+
+Expint3
+& exe(5, 2.5) & result=0.01190737934637797 & result=0.01145706115710305\\
+& exe(5, 2.5) & del_=1.0000000545697552 & del_=1.000000040472926\\
+& exe(1, 10) & result=4.1569689211880595e-06 & result=4.098890463812262e-06\\
+& exe(1, 10) & del_=1.0000000211235915 & del_=1.0000000098151716\\
+& exe(7, 25) & result=4.3684684836002376e-13 & result=4.360187006471278e-13\\
+& exe(7, 25) & del_=1.0000000482991784 & del_=1.000000005732801\\
+& exe(15, 2) & result=0.00838980749776144 & result=0.008321655180318967\\
+& exe(15, 2) & del_=1.0000000814659802 & del_=1.0000000588331937\\
+& exe(0, 10) & result=4.539992976248485e-06 & result=4.539992976248485e-06\\
+& exe(0, 10) & del_=0.0 & del_=0.0\\
+Passing Testcases: 2
+Failing Testcases: 8
+
+ExpintDivisionBy1
+& exe(5, 2.5) & 0.01190737934637797 & 0.08208500310325707\\
+& exe(1, 10) & 4.1569689211880595e-06 & 4.5399930721494425e-05\\
+& exe(7, 25) & 4.3684684836002376e-13 & 1.3887944535740299e-11\\
+& exe(15, 2) & 0.00838980749776144 & 0.13533529426183422\\
+& exe(0, 10) & 4.539992976248485e-06 & 4.539992976248485e-06\\
+Passing Testcases: 1
+Failing Testcases: 4
+
+ExpintJustOneOutput
+& exe(5, 2.5) & 0.01190737934637797 & 0.08208500310325707\\
+& exe(1, 10) & 4.1569689211880595e-06 & 4.5399930721494425e-05\\
+& exe(7, 25) & 4.3684684836002376e-13 & 1.3887944535740299e-11\\
+& exe(15, 2) & 0.00838980749776144 & 0.13533529426183422\\
+& exe(0, 10) & 4.539992976248485e-06 & 4.539992976248485e-06\\
+Passing Testcases: 1
+Failing Testcases: 4
+
+ExpintJustOneOutput2
+& exe(5, 2.5) & 0.01190737934637797 & 1.7672117854287284\\
+& exe(1, 10) & 4.1569689211880595e-06 & 2016.81663896063\\
+& exe(7, 25) & 4.3684684836002376e-13 & 2264922269.8380537\\
+& exe(15, 2) & 0.00838980749776144 & 0.45806796851197756\\
+& exe(0, 10) & 4.539992976248485e-06 & 4.539992976248485e-06\\
+Passing Testcases: 1
+Failing Testcases: 4
+
+ExpintJustOneOutput3
+& exe(5, 2.5) & 0.01190737934637797 & 0.01145706115710305\\
+& exe(1, 10) & 4.1569689211880595e-06 & 4.098890463812262e-06\\
+& exe(7, 25) & 4.3684684836002376e-13 & 4.360187006471278e-13\\
+& exe(15, 2) & 0.00838980749776144 & 0.008321655180318967\\
+& exe(0, 10) & 4.539992976248485e-06 & 4.539992976248485e-06\\
+Passing Testcases: 1
+Failing Testcases: 4
+
+ExpintMultiplicationBy1
+& exe(5, 2.5) & 0.01190737934637797 & 0.08208500310325707\\
+& exe(1, 10) & 4.1569689211880595e-06 & 4.5399930721494425e-05\\
+& exe(7, 25) & 4.3684684836002376e-13 & 1.3887944535740299e-11\\
+& exe(15, 2) & 0.00838980749776144 & 0.13533529426183422\\
+& exe(0, 10) & 4.539992976248485e-06 & 4.539992976248485e-06\\
+Passing Testcases: 1
+Failing Testcases: 4
+
+Factorial
+& main(0) & 1 & 0\\
+& main(1) & 1 & 0\\
+& main(5) & 120 & 0\\
+& main(7) & 5040 & 0\\
+& main(10) & 3628800 & 0\\
+& main(3) & 6 & 0\\
+& main(8) & 40320 & 0\\
+Passing Testcases: 0
+Failing Testcases: 7
+
+Fisher
+& exe(5, 10, 2.5) & result=0.89799772335573 & result=0.0\\
+& exe(5, 10, 2.5) & p=0.89799772335573 & p=-inf\\
+& exe(5, 10, 2.5) & a=1 & a=-4\\
+& exe(5, 10, 2.5) & b=8 & b=8\\
+& exe(5, 1, 2) & result=0.5110840804563067 & result=0.6984886554222364\\
+& exe(5, 1, 2) & p=0.5110840804563067 & p=0.6984886554222364\\
+& exe(5, 1, 2) & a=1 & a=5\\
+& exe(5, 1, 2) & b=-1 & b=-1\\
+& exe(5, 3, 1) & result=0.4648547900173071 & result=0.6268355469978752\\
+& exe(5, 3, 1) & p=0.4648547900173071 & p=0.6268355469978752\\
+& exe(5, 3, 1) & a=1 & a=3\\
+& exe(5, 3, 1) & b=1 & b=1\\
+& exe(20, 10, 2) & result=0.8701603741695998 & result=0.9985047568253969\\
+& exe(20, 10, 2) & p=0.8701603741695998 & p=0.9985047568253969\\
+& exe(20, 10, 2) & a=2 & a=12\\
+& exe(20, 10, 2) & b=8 & b=8\\
+& exe(20, 1, 15) & result=0.798891780480029 & result=0.9423609582295766\\
+& exe(20, 1, 15) & p=0.798891780480029 & p=0.9423609582295766\\
+& exe(20, 1, 15) & a=2 & a=21\\
+& exe(20, 1, 15) & b=-1 & b=-1\\
+Passing Testcases: 5
+Failing Testcases: 15
+
+Fisher2
+& exe(5, 10, 2.5) & result=0.89799772335573 & result=0.8674693771845702\\
+& exe(5, 10, 2.5) & p=0.89799772335573 & p=0.8674693771845702\\
+& exe(5, 10, 2.5) & a=1 & a=1\\
+& exe(5, 10, 2.5) & b=8 & b=8\\
+& exe(5, 1, 2) & result=0.5110840804563067 & result=0.5110840804563067\\
+& exe(5, 1, 2) & p=0.5110840804563067 & p=0.5110840804563067\\
+& exe(5, 1, 2) & a=1 & a=1\\
+& exe(5, 1, 2) & b=-1 & b=-1\\
+& exe(5, 3, 1) & result=0.4648547900173071 & result=0.4648547900173071\\
+& exe(5, 3, 1) & p=0.4648547900173071 & p=0.4648547900173071\\
+& exe(5, 3, 1) & a=1 & a=1\\
+& exe(5, 3, 1) & b=1 & b=1\\
+& exe(20, 10, 2) & result=0.8701603741695998 & result=0.8701603741695998\\
+& exe(20, 10, 2) & p=0.8701603741695998 & p=0.8701603741695998\\
+& exe(20, 10, 2) & a=2 & a=2\\
+& exe(20, 10, 2) & b=8 & b=8\\
+& exe(20, 1, 15) & result=0.798891780480029 & result=0.798891780480029\\
+& exe(20, 1, 15) & p=0.798891780480029 & p=0.798891780480029\\
+& exe(20, 1, 15) & a=2 & a=2\\
+& exe(20, 1, 15) & b=-1 & b=-1\\
+Passing Testcases: 18
+Failing Testcases: 2
+
+Fisher3
+& exe(5, 10, 2.5) & result=0.89799772335573 & result=0.89799772335573\\
+& exe(5, 10, 2.5) & p=0.89799772335573 & p=0.89799772335573\\
+& exe(5, 10, 2.5) & a=1 & a=1\\
+& exe(5, 10, 2.5) & b=8 & b=8\\
+& exe(5, 1, 2) & result=0.5110840804563067 & result=0.5110840804563067\\
+& exe(5, 1, 2) & p=0.5110840804563067 & p=0.5110840804563067\\
+& exe(5, 1, 2) & a=1 & a=1\\
+& exe(5, 1, 2) & b=-1 & b=-1\\
+& exe(5, 3, 1) & result=0.4648547900173071 & result=0.4648547900173071\\
+& exe(5, 3, 1) & p=0.4648547900173071 & p=0.4648547900173071\\
+& exe(5, 3, 1) & a=1 & a=1\\
+& exe(5, 3, 1) & b=1 & b=1\\
+& exe(20, 10, 2) & result=0.8701603741695998 & result=1.0\\
+& exe(20, 10, 2) & p=0.8701603741695998 & p=4.863760374169599\\
+& exe(20, 10, 2) & a=2 & a=2\\
+& exe(20, 10, 2) & b=8 & b=8\\
+& exe(20, 1, 15) & result=0.798891780480029 & result=0.798891780480029\\
+& exe(20, 1, 15) & p=0.798891780480029 & p=0.798891780480029\\
+& exe(20, 1, 15) & a=2 & a=2\\
+& exe(20, 1, 15) & b=-1 & b=-1\\
+Passing Testcases: 18
+Failing Testcases: 2
+
+FisherJustOneOutput
+& exe(5, 10, 2.5) & 0.89799772335573 & 0.0\\
+& exe(5, 1, 2) & 0.5110840804563067 & 0.6984886554222364\\
+& exe(5, 3, 1) & 0.4648547900173071 & 0.6268355469978752\\
+& exe(20, 10, 2) & 0.8701603741695998 & 0.9985047568253969\\
+& exe(20, 1, 15) & 0.798891780480029 & 0.9423609582295766\\
+Passing Testcases: 0
+Failing Testcases: 5
+
+FisherJustOneOutput2
+& exe(5, 10, 2.5) & 0.89799772335573 & 0.8674693771845702\\
+& exe(5, 1, 2) & 0.5110840804563067 & 0.5110840804563067\\
+& exe(5, 3, 1) & 0.4648547900173071 & 0.4648547900173071\\
+& exe(20, 10, 2) & 0.8701603741695998 & 0.8701603741695998\\
+& exe(20, 1, 15) & 0.798891780480029 & 0.798891780480029\\
+Passing Testcases: 4
+Failing Testcases: 1
+
+FisherJustOneOutput3
+& exe(5, 10, 2.5) & 0.89799772335573 & 0.89799772335573\\
+& exe(5, 1, 2) & 0.5110840804563067 & 0.5110840804563067\\
+& exe(5, 3, 1) & 0.4648547900173071 & 0.4648547900173071\\
+& exe(20, 10, 2) & 0.8701603741695998 & 1.0\\
+& exe(20, 1, 15) & 0.798891780480029 & 0.798891780480029\\
+Passing Testcases: 4
+Failing Testcases: 1
+
+Foo
+& calc(3,"square") & 6.0 & 6.0\\
+& calc(3,"cube") & 27.0 & 27.0\\
+Passing Testcases: 2
+Failing Testcases: 0
+
+GCD
+& main(48, 18) & 6 & 0\\
+& main(101, 103) & 1 & 0\\
+& main(0, 7) & 0 & 0\\
+& main(56, 98) & 14 & 0\\
+& main(100, 25) & 25 & 0\\
+& main(270, 192) & 6 & 0\\
+& main(17, 34) & 17 & 0\\
+Passing Testcases: 1
+Failing Testcases: 6
+
+Gammq
+& exe(2.5, 7.5) & result=0.010362337793514904 & result=0.011031145378918758\\
+& exe(2.5, 7.5) & gamser=0.0 & gamser=0.0\\
+& exe(2.5, 7.5) & gammcf=0.010362337793514904 & gammcf=0.011031145378918758\\
+& exe(2.5, 7.5) & gln=0.2846828704729183 & gln=0.2846828704729183\\
+& exe(10, 5) & result=0.9681719435010642 & result=0.9681719435010642\\
+& exe(10, 5) & gamser=0.03182805649893585 & gamser=0.03182805649893585\\
+& exe(10, 5) & gammcf=0.0 & gammcf=0.0\\
+& exe(10, 5) & gln=12.801827480081961 & gln=12.801827480081961\\
+& exe(15, 2) & result=0.9999999961287697 & result=0.9999999961287697\\
+& exe(15, 2) & gamser=3.871230356694576e-09 & gamser=3.871230356694576e-09\\
+& exe(15, 2) & gammcf=0.0 & gammcf=0.0\\
+& exe(15, 2) & gln=25.191221182742492 & gln=25.191221182742492\\
+& exe(3, 20) & result=4.55514950558922e-07 & result=4.60604738075556e-07\\
+& exe(3, 20) & gamser=0.0 & gamser=0.0\\
+& exe(3, 20) & gammcf=4.55514950558922e-07 & gammcf=4.60604738075556e-07\\
+& exe(3, 20) & gln=0.6931471805599443 & gln=0.6931471805599443\\
+& exe(5, 5) & result=0.4404933032717462 & result=0.4404933032717462\\
+& exe(5, 5) & gamser=0.5595066967282538 & gamser=0.5595066967282538\\
+& exe(5, 5) & gammcf=0.0 & gammcf=0.0\\
+& exe(5, 5) & gln=3.1780538303479453 & gln=3.1780538303479453\\
+Passing Testcases: 16
+Failing Testcases: 4
+
+Gammq2
+& exe(2.5, 7.5) & result=0.010362337793514904 & result=0.010362337793514904\\
+& exe(2.5, 7.5) & gamser=0.0 & gamser=0.0\\
+& exe(2.5, 7.5) & gammcf=0.010362337793514904 & gammcf=0.010362337793514904\\
+& exe(2.5, 7.5) & gln=0.2846828704729183 & gln=0.2846828704729183\\
+& exe(10, 5) & result=0.9681719435010642 & result=-11548.765142339516\\
+& exe(10, 5) & gamser=0.03182805649893585 & gamser=11549.765142339516\\
+& exe(10, 5) & gammcf=0.0 & gammcf=0.0\\
+& exe(10, 5) & gln=12.801827480081961 & gln=12.801827480081961\\
+& exe(15, 2) & result=0.9999999961287697 & result=-336.4872473394856\\
+& exe(15, 2) & gamser=3.871230356694576e-09 & gamser=337.4872473394856\\
+& exe(15, 2) & gammcf=0.0 & gammcf=0.0\\
+& exe(15, 2) & gln=25.191221182742492 & gln=25.191221182742492\\
+& exe(3, 20) & result=4.55514950558922e-07 & result=4.55514950558922e-07\\
+& exe(3, 20) & gamser=0.0 & gamser=0.0\\
+& exe(3, 20) & gammcf=4.55514950558922e-07 & gammcf=4.55514950558922e-07\\
+& exe(3, 20) & gln=0.6931471805599443 & gln=0.6931471805599443\\
+& exe(5, 5) & result=0.4404933032717462 & result=-12.428160721478088\\
+& exe(5, 5) & gamser=0.5595066967282538 & gamser=13.428160721478088\\
+& exe(5, 5) & gammcf=0.0 & gammcf=0.0\\
+& exe(5, 5) & gln=3.1780538303479453 & gln=3.1780538303479453\\
+Passing Testcases: 14
+Failing Testcases: 6
+
+Gammq3
+& exe(2.5, 7.5) & result=0.010362337793514904 & result=0.010362337793514904\\
+& exe(2.5, 7.5) & gamser=0.0 & gamser=0.0\\
+& exe(2.5, 7.5) & gammcf=0.010362337793514904 & gammcf=0.010362337793514904\\
+& exe(2.5, 7.5) & gln=0.2846828704729183 & gln=0.2846828704729183\\
+& exe(10, 5) & result=0.9681719435010642 & result=-0.9681719435010642\\
+& exe(10, 5) & gamser=0.03182805649893585 & gamser=0.03182805649893585\\
+& exe(10, 5) & gammcf=0.0 & gammcf=0.0\\
+& exe(10, 5) & gln=12.801827480081961 & gln=12.801827480081961\\
+& exe(15, 2) & result=0.9999999961287697 & result=-0.9999999961287697\\
+& exe(15, 2) & gamser=3.871230356694576e-09 & gamser=3.871230356694576e-09\\
+& exe(15, 2) & gammcf=0.0 & gammcf=0.0\\
+& exe(15, 2) & gln=25.191221182742492 & gln=25.191221182742492\\
+& exe(3, 20) & result=4.55514950558922e-07 & result=4.55514950558922e-07\\
+& exe(3, 20) & gamser=0.0 & gamser=0.0\\
+& exe(3, 20) & gammcf=4.55514950558922e-07 & gammcf=4.55514950558922e-07\\
+& exe(3, 20) & gln=0.6931471805599443 & gln=0.6931471805599443\\
+& exe(5, 5) & result=0.4404933032717462 & result=-0.4404933032717462\\
+& exe(5, 5) & gamser=0.5595066967282538 & gamser=0.5595066967282538\\
+& exe(5, 5) & gammcf=0.0 & gammcf=0.0\\
+& exe(5, 5) & gln=3.1780538303479453 & gln=3.1780538303479453\\
+Passing Testcases: 17
+Failing Testcases: 3
+
+GammqJustOneOutput
+& exe(2.5, 7.5) & 0.010362337793514904 & 0.011031145378918758\\
+& exe(10, 5) & 0.9681719435010642 & 0.9681719435010642\\
+& exe(15, 2) & 0.9999999961287697 & 0.9999999961287697\\
+& exe(3, 20) & 4.55514950558922e-07 & 4.60604738075556e-07\\
+& exe(5, 5) & 0.4404933032717462 & 0.4404933032717462\\
+Passing Testcases: 3
+Failing Testcases: 2
+
+GammqJustOneOutput2
+& exe(2.5, 7.5) & 0.010362337793514904 & 0.010362337793514904\\
+& exe(10, 5) & 0.9681719435010642 & -11548.765142339516\\
+& exe(15, 2) & 0.9999999961287697 & -336.4872473394856\\
+& exe(3, 20) & 4.55514950558922e-07 & 4.55514950558922e-07\\
+& exe(5, 5) & 0.4404933032717462 & -12.428160721478088\\
+Passing Testcases: 2
+Failing Testcases: 3
+
+GammqJustOneOutput3
+& exe(2.5, 7.5) & 0.010362337793514904 & 0.010362337793514904\\
+& exe(10, 5) & 0.9681719435010642 & -0.9681719435010642\\
+& exe(15, 2) & 0.9999999961287697 & -0.9999999961287697\\
+& exe(3, 20) & 4.55514950558922e-07 & 4.55514950558922e-07\\
+& exe(5, 5) & 0.4404933032717462 & -0.4404933032717462\\
+Passing Testcases: 2
+Failing Testcases: 3
+
+InverseCounter
+& main([1,2,3,4,5]) & 0 & 0\\
+& main([5,4,3,2,1]) & 10 & 6\\
+& main([1,3,2,5,4]) & 2 & 1\\
+& main([7,5,3,1]) & 6 & 3\\
+& main([1,2,3,4,0]) & 4 & 0\\
+& main([10, 20, 30, 40, 50]) & 0 & 0\\
+& main([8, 4, 2, 1]) & 6 & 3\\
+Passing Testcases: 2
+Failing Testcases: 5
+
+Isprime
+& main(0) & False & False\\
+& main(1) & False & False\\
+& main(2) & True & False\\
+& main(17) & True & False\\
+& main(18) & False & False\\
+& main(97) & True & False\\
+& main(100) & False & False\\
+Passing Testcases: 4
+Failing Testcases: 3
+
+LCM
+& main(48, 18) & 144 & 36\\
+& main(101, 103) & 10403 & 0\\
+& main(0, 7) & 0 & 0\\
+& main(56, 98) & 392 & 0\\
+& main(100, 25) & 100 & 100\\
+& main(270, 192) & 8640 & 192\\
+& main(17, 34) & 34 & 0\\
+Passing Testcases: 2
+Failing Testcases: 5
+
+LogExp
+& main(2.0, 3) & 8.0 & 1.0\\
+& main(5.0, 0) & 1.0 & 1.0\\
+& main(7.0, 1) & 7.0 & 1.0\\
+& main(10.0, 2) & 100.0 & 1.0\\
+& main(-2.0, 3) & -8.0 & 1.0\\
+& main(-3.0, 4) & 81.0 & 1.0\\
+& main(2.0, 10) & 1024.0 & 1.0\\
+Passing Testcases: 1
+Failing Testcases: 6
+
+Luhn
+& validate("5114595121210620",0) & 1 & 0\\
+& validate("5114595121210621",0) & 0 & 0\\
+& validate("511459512121062",0) & 0 & 1\\
+& validate("4436124776766770",1) & 1 & 1\\
+& validate("4436128683271576",1) & 1 & 1\\
+& validate("5114595121210620",1) & 0 & 0\\
+& validate("511459512121",1) & 0 & 0\\
+Passing Testcases: 5
+Failing Testcases: 2
+
+Luhn2
+& validate("5114595121210620",0) & 1 & 0\\
+& validate("5114595121210621",0) & 0 & 0\\
+& validate("511459512121062",0) & 0 & 0\\
+& validate("4436124776766770",1) & 1 & 0\\
+& validate("4436128683271576",1) & 1 & 0\\
+& validate("5114595121210620",1) & 0 & 0\\
+& validate("511459512121",1) & 0 & 0\\
+Passing Testcases: 4
+Failing Testcases: 3
+
+LuhnJustOneOutput
+& validate("5114595121210620",0) & 1 & 0\\
+& validate("5114595121210621",0) & 0 & 0\\
+& validate("511459512121062",0) & 0 & 1\\
+& validate("4436124776766770",1) & 1 & 1\\
+& validate("4436128683271576",1) & 1 & 1\\
+& validate("5114595121210620",1) & 0 & 0\\
+& validate("511459512121",1) & 0 & 0\\
+Passing Testcases: 5
+Failing Testcases: 2
+
+LuhnJustOneOutput2
+& validate("5114595121210620",0) & 1 & 0\\
+& validate("5114595121210621",0) & 0 & 0\\
+& validate("511459512121062",0) & 0 & 0\\
+& validate("4436124776766770",1) & 1 & 0\\
+& validate("4436128683271576",1) & 1 & 0\\
+& validate("5114595121210620",1) & 0 & 0\\
+& validate("511459512121",1) & 0 & 0\\
+Passing Testcases: 4
+Failing Testcases: 3
+
+Middle
+& findMiddle(1,2,3) & 2 & 2\\
+& findMiddle(1,1,1) & 1 & 1\\
+& findMiddle(3,2,3) & 2 & 2\\
+& findMiddle(3,2,1) & 2 & 2\\
+& findMiddle(3,5,1) & 3 & 5\\
+Passing Testcases: 4
+Failing Testcases: 1
+
+Middle2
+& findMiddle(1,2,3) & 2 & 2\\
+& findMiddle(1,1,1) & 1 & 1\\
+& findMiddle(3,2,3) & 2 & 2\\
+& findMiddle(3,2,1) & 2 & 2\\
+& findMiddle(3,5,1) & 3 & 5\\
+Passing Testcases: 4
+Failing Testcases: 1
+
+MiddleJustOneOutput
+& findMiddle(1,2,3) & 2 & 2\\
+& findMiddle(1,1,1) & 1 & 1\\
+& findMiddle(3,2,3) & 2 & 2\\
+& findMiddle(3,2,1) & 2 & 2\\
+& findMiddle(3,5,1) & 3 & 5\\
+Passing Testcases: 4
+Failing Testcases: 1
+
+MiddleJustOneOutput2
+& findMiddle(1,2,3) & 2 & 2\\
+& findMiddle(1,1,1) & 1 & 1\\
+& findMiddle(3,2,3) & 2 & 2\\
+& findMiddle(3,2,1) & 2 & 2\\
+& findMiddle(3,5,1) & 3 & 5\\
+Passing Testcases: 4
+Failing Testcases: 1
+
+MiddleJustOneOutput3
+& findMiddle(1,2,3) & 2 & 2\\
+& findMiddle(1,1,1) & 1 & 1\\
+& findMiddle(3,2,3) & 2 & 2\\
+& findMiddle(3,2,1) & 2 & 2\\
+& findMiddle(3,5,1) & 3 & 3\\
+Passing Testcases: 5
+Failing Testcases: 0
+
+Minimax
+& main([3, 5, 2, 9, 12, 5, 23, 23]) & 12 & -12\\
+& main([7, 8, 3, 5]) & 7 & -7\\
+& main([-1, -2, -3, -4]) & -2 & 2\\
+& main([10]) & 10 & -10\\
+& main([4, 6, 8, 2, 1, 7, 9, 3]) & 7 & -7\\
+& main([100, 200, 300, 400, 500]) & 300 & -300\\
+& main([-5, -10, 0, 5, 10]) & 0 & 0\\
+Passing Testcases: 1
+Failing Testcases: 6
+
+ModInverse
+& main(3, 11) & 4 & -1\\
+& main(10, 17) & 12 & -1\\
+& main(7, 13) & 2 & -1\\
+& main(1, 5) & 1 & -1\\
+& main(6, 7) & 6 & -1\\
+& main(25, 47) & 32 & -1\\
+& main(8, 15) & 2 & -1\\
+Passing Testcases: 0
+Failing Testcases: 7
+
+Mult
+& main(3, 4) & 12 & 12\\
+& main(7, 8) & 56 & 56\\
+& main(0, 5) & 0 & 0\\
+& main(9, 1) & 9 & 9\\
+& main(-6, 4) & -24 & -24\\
+& main(-3, -7) & 21 & -21\\
+& main(15, 0) & 0 & 0\\
+Passing Testcases: 6
+Failing Testcases: 1
+
+RSA
+& main(1, 61, 53) & 1 & 1\\
+& main(12, 7919,1009) & 12 & 2288603\\
+& main(101, 17, 19) & 101 & 220\\
+& main(77, 23,41) & 77 & 606\\
+& main(5, 31,37) & 5 & 315\\
+& main(52, 67,71) & 52 & 1258\\
+& main(99, 11,13) & 99 & 99\\
+Passing Testcases: 2
+Failing Testcases: 5
+
+RussianPeasant
+& main(18, 7) & 126 & 0\\
+& main(1, 53) & 53 & 0\\
+& main(1, 45) & 45 & 0\\
+& main(16, 32) & 512 & 0\\
+& main(25, 8) & 200 & 0\\
+& main(1234, 5678) & 7006652 & 0\\
+& main(15, 21) & 315 & 0\\
+Passing Testcases: 0
+Failing Testcases: 7
+
+Sqrt
+& main(4) & 2 & 0\\
+& main(10) & 3 & 0\\
+& main(16) & 4 & 0\\
+& main(25) & 5 & 0\\
+& main(-50) & 0 & 0\\
+& main(1) & 1 & 0\\
+& main(0) & 0 & 0\\
+Passing Testcases: 2
+Failing Testcases: 5
+
+Tcas
+& testMe(700, 1, 1, 800, 200, 1000, 0, 500, 600, 0, 1, 0) & return_value=0 & return_value=0\\
+& testMe(700, 1, 1, 800, 200, 1000, 0, 500, 600, 0, 1, 0) & alim=0 & alim=0\\
+& testMe(700, 1, 1, 800, 200, 1000, 0, 500, 600, 0, 1, 0) & inhibit_biased_climb=500 & inhibit_biased_climb=500\\
+& testMe(700, 1, 1, 800, 200, 1000, 0, 500, 600, 0, 1, 0) & non_crossing_biased_climb=False & non_crossing_biased_climb=False\\
+& testMe(700, 1, 1, 800, 200, 1000, 0, 500, 600, 0, 1, 0) & non_crossing_biased_descend=False & non_crossing_biased_descend=False\\
+& testMe(800, 1, 1, 1200, 300, 1600, 2, 740, 500, 0, 2, 1) & return_value=1 & return_value=1\\
+& testMe(800, 1, 1, 1200, 300, 1600, 2, 740, 500, 0, 2, 1) & alim=640 & alim=640\\
+& testMe(800, 1, 1, 1200, 300, 1600, 2, 740, 500, 0, 2, 1) & inhibit_biased_climb=840 & inhibit_biased_climb=640\\
+& testMe(800, 1, 1, 1200, 300, 1600, 2, 740, 500, 0, 2, 1) & non_crossing_biased_climb=False & non_crossing_biased_climb=False\\
+& testMe(800, 1, 1, 1200, 300, 1600, 2, 740, 500, 0, 2, 1) & non_crossing_biased_descend=False & non_crossing_biased_descend=False\\
+& testMe(600, 1, 1, 1000, 200, 1100, 3, 600, 600, 0, 1, 0) & return_value=0 & return_value=0\\
+& testMe(600, 1, 1, 1000, 200, 1100, 3, 600, 600, 0, 1, 0) & alim=0 & alim=0\\
+& testMe(600, 1, 1, 1000, 200, 1100, 3, 600, 600, 0, 1, 0) & inhibit_biased_climb=0 & inhibit_biased_climb=0\\
+& testMe(600, 1, 1, 1000, 200, 1100, 3, 600, 600, 0, 1, 0) & non_crossing_biased_climb=False & non_crossing_biased_climb=False\\
+& testMe(600, 1, 1, 1000, 200, 1100, 3, 600, 600, 0, 1, 0) & non_crossing_biased_descend=False & non_crossing_biased_descend=False\\
+& testMe(300, 1, 1, 500, 100, 600, 1, 400, 300, 0, 1, 1) & return_value=0 & return_value=0\\
+& testMe(300, 1, 1, 500, 100, 600, 1, 400, 300, 0, 1, 1) & alim=0 & alim=0\\
+& testMe(300, 1, 1, 500, 100, 600, 1, 400, 300, 0, 1, 1) & inhibit_biased_climb=0 & inhibit_biased_climb=0\\
+& testMe(300, 1, 1, 500, 100, 600, 1, 400, 300, 0, 1, 1) & non_crossing_biased_climb=False & non_crossing_biased_climb=False\\
+& testMe(300, 1, 1, 500, 100, 600, 1, 400, 300, 0, 1, 1) & non_crossing_biased_descend=False & non_crossing_biased_descend=False\\
+& testMe(800, 1, 1, 600, 100, 1100, 2, 500, 400, 0, 1, 0) & return_value=1 & return_value=1\\
+& testMe(800, 1, 1, 600, 100, 1100, 2, 500, 400, 0, 1, 0) & alim=640 & alim=640\\
+& testMe(800, 1, 1, 600, 100, 1100, 2, 500, 400, 0, 1, 0) & inhibit_biased_climb=500 & inhibit_biased_climb=500\\
+& testMe(800, 1, 1, 600, 100, 1100, 2, 500, 400, 0, 1, 0) & non_crossing_biased_climb=False & non_crossing_biased_climb=False\\
+& testMe(800, 1, 1, 600, 100, 1100, 2, 500, 400, 0, 1, 0) & non_crossing_biased_descend=False & non_crossing_biased_descend=False\\
+& testMe(500, 1, 1, 1000, 200, 1500, 2, 600, 500, 0, 2, 1) & return_value=0 & return_value=0\\
+& testMe(500, 1, 1, 1000, 200, 1500, 2, 600, 500, 0, 2, 1) & alim=0 & alim=0\\
+& testMe(500, 1, 1, 1000, 200, 1500, 2, 600, 500, 0, 2, 1) & inhibit_biased_climb=0 & inhibit_biased_climb=0\\
+& testMe(500, 1, 1, 1000, 200, 1500, 2, 600, 500, 0, 2, 1) & non_crossing_biased_climb=False & non_crossing_biased_climb=False\\
+& testMe(500, 1, 1, 1000, 200, 1500, 2, 600, 500, 0, 2, 1) & non_crossing_biased_descend=False & non_crossing_biased_descend=False\\
+& testMe(601, 1, 1, 998, 200, 997, 0, 1000, 1001, 0, 2, 1) & return_value=0 & return_value=2\\
+& testMe(601, 1, 1, 998, 200, 997, 0, 1000, 1001, 0, 2, 1) & alim=0 & alim=400\\
+& testMe(601, 1, 1, 998, 200, 997, 0, 1000, 1001, 0, 2, 1) & inhibit_biased_climb=1100 & inhibit_biased_climb=900\\
+& testMe(601, 1, 1, 998, 200, 997, 0, 1000, 1001, 0, 2, 1) & non_crossing_biased_climb=False & non_crossing_biased_climb=False\\
+& testMe(601, 1, 1, 998, 200, 997, 0, 1000, 1001, 0, 2, 1) & non_crossing_biased_descend=False & non_crossing_biased_descend=False\\
+& testMe(601, 1, 1, 998, 200, 997, 0, 1000, 1101, 0, 2, 1) & return_value=2 & return_value=2\\
+& testMe(601, 1, 1, 998, 200, 997, 0, 1000, 1101, 0, 2, 1) & alim=400 & alim=400\\
+& testMe(601, 1, 1, 998, 200, 997, 0, 1000, 1101, 0, 2, 1) & inhibit_biased_climb=1100 & inhibit_biased_climb=900\\
+& testMe(601, 1, 1, 998, 200, 997, 0, 1000, 1101, 0, 2, 1) & non_crossing_biased_climb=False & non_crossing_biased_climb=False\\
+& testMe(601, 1, 1, 998, 200, 997, 0, 1000, 1101, 0, 2, 1) & non_crossing_biased_descend=False & non_crossing_biased_descend=False\\
+Passing Testcases: 35
+Failing Testcases: 5
+
+Tcas2
+& testMe(700, 1, 1, 800, 200, 1000, 0, 500, 600, 0, 1, 0) & return_value=0 & return_value=0\\
+& testMe(700, 1, 1, 800, 200, 1000, 0, 500, 600, 0, 1, 0) & alim=0 & alim=0\\
+& testMe(700, 1, 1, 800, 200, 1000, 0, 500, 600, 0, 1, 0) & inhibit_biased_climb=500 & inhibit_biased_climb=500\\
+& testMe(700, 1, 1, 800, 200, 1000, 0, 500, 600, 0, 1, 0) & non_crossing_biased_climb=False & non_crossing_biased_climb=False\\
+& testMe(700, 1, 1, 800, 200, 1000, 0, 500, 600, 0, 1, 0) & non_crossing_biased_descend=False & non_crossing_biased_descend=False\\
+& testMe(800, 1, 1, 1200, 300, 1600, 2, 740, 500, 0, 2, 1) & return_value=1 & return_value=1\\
+& testMe(800, 1, 1, 1200, 300, 1600, 2, 740, 500, 0, 2, 1) & alim=640 & alim=640\\
+& testMe(800, 1, 1, 1200, 300, 1600, 2, 740, 500, 0, 2, 1) & inhibit_biased_climb=840 & inhibit_biased_climb=840\\
+& testMe(800, 1, 1, 1200, 300, 1600, 2, 740, 500, 0, 2, 1) & non_crossing_biased_climb=False & non_crossing_biased_climb=False\\
+& testMe(800, 1, 1, 1200, 300, 1600, 2, 740, 500, 0, 2, 1) & non_crossing_biased_descend=False & non_crossing_biased_descend=False\\
+& testMe(600, 1, 1, 1000, 200, 1100, 3, 600, 600, 0, 1, 0) & return_value=0 & return_value=0\\
+& testMe(600, 1, 1, 1000, 200, 1100, 3, 600, 600, 0, 1, 0) & alim=0 & alim=0\\
+& testMe(600, 1, 1, 1000, 200, 1100, 3, 600, 600, 0, 1, 0) & inhibit_biased_climb=0 & inhibit_biased_climb=0\\
+& testMe(600, 1, 1, 1000, 200, 1100, 3, 600, 600, 0, 1, 0) & non_crossing_biased_climb=False & non_crossing_biased_climb=False\\
+& testMe(600, 1, 1, 1000, 200, 1100, 3, 600, 600, 0, 1, 0) & non_crossing_biased_descend=False & non_crossing_biased_descend=False\\
+& testMe(300, 1, 1, 500, 100, 600, 1, 400, 300, 0, 1, 1) & return_value=0 & return_value=0\\
+& testMe(300, 1, 1, 500, 100, 600, 1, 400, 300, 0, 1, 1) & alim=0 & alim=0\\
+& testMe(300, 1, 1, 500, 100, 600, 1, 400, 300, 0, 1, 1) & inhibit_biased_climb=0 & inhibit_biased_climb=0\\
+& testMe(300, 1, 1, 500, 100, 600, 1, 400, 300, 0, 1, 1) & non_crossing_biased_climb=False & non_crossing_biased_climb=False\\
+& testMe(300, 1, 1, 500, 100, 600, 1, 400, 300, 0, 1, 1) & non_crossing_biased_descend=False & non_crossing_biased_descend=False\\
+& testMe(800, 1, 1, 600, 100, 1100, 2, 500, 400, 0, 1, 0) & return_value=1 & return_value=1\\
+& testMe(800, 1, 1, 600, 100, 1100, 2, 500, 400, 0, 1, 0) & alim=640 & alim=640\\
+& testMe(800, 1, 1, 600, 100, 1100, 2, 500, 400, 0, 1, 0) & inhibit_biased_climb=500 & inhibit_biased_climb=500\\
+& testMe(800, 1, 1, 600, 100, 1100, 2, 500, 400, 0, 1, 0) & non_crossing_biased_climb=False & non_crossing_biased_climb=False\\
+& testMe(800, 1, 1, 600, 100, 1100, 2, 500, 400, 0, 1, 0) & non_crossing_biased_descend=False & non_crossing_biased_descend=False\\
+& testMe(500, 1, 1, 1000, 200, 1500, 2, 600, 500, 0, 2, 1) & return_value=0 & return_value=0\\
+& testMe(500, 1, 1, 1000, 200, 1500, 2, 600, 500, 0, 2, 1) & alim=0 & alim=0\\
+& testMe(500, 1, 1, 1000, 200, 1500, 2, 600, 500, 0, 2, 1) & inhibit_biased_climb=0 & inhibit_biased_climb=0\\
+& testMe(500, 1, 1, 1000, 200, 1500, 2, 600, 500, 0, 2, 1) & non_crossing_biased_climb=False & non_crossing_biased_climb=False\\
+& testMe(500, 1, 1, 1000, 200, 1500, 2, 600, 500, 0, 2, 1) & non_crossing_biased_descend=False & non_crossing_biased_descend=False\\
+& testMe(601, 1, 1, 998, 200, 997, 0, 1000, 1001, 0, 2, 1) & return_value=0 & return_value=2\\
+& testMe(601, 1, 1, 998, 200, 997, 0, 1000, 1001, 0, 2, 1) & alim=0 & alim=400\\
+& testMe(601, 1, 1, 998, 200, 997, 0, 1000, 1001, 0, 2, 1) & inhibit_biased_climb=1100 & inhibit_biased_climb=1100\\
+& testMe(601, 1, 1, 998, 200, 997, 0, 1000, 1001, 0, 2, 1) & non_crossing_biased_climb=False & non_crossing_biased_climb=False\\
+& testMe(601, 1, 1, 998, 200, 997, 0, 1000, 1001, 0, 2, 1) & non_crossing_biased_descend=False & non_crossing_biased_descend=False\\
+& testMe(601, 1, 1, 998, 200, 997, 0, 1000, 1101, 0, 2, 1) & return_value=2 & return_value=2\\
+& testMe(601, 1, 1, 998, 200, 997, 0, 1000, 1101, 0, 2, 1) & alim=400 & alim=400\\
+& testMe(601, 1, 1, 998, 200, 997, 0, 1000, 1101, 0, 2, 1) & inhibit_biased_climb=1100 & inhibit_biased_climb=1100\\
+& testMe(601, 1, 1, 998, 200, 997, 0, 1000, 1101, 0, 2, 1) & non_crossing_biased_climb=False & non_crossing_biased_climb=False\\
+& testMe(601, 1, 1, 998, 200, 997, 0, 1000, 1101, 0, 2, 1) & non_crossing_biased_descend=False & non_crossing_biased_descend=False\\
+Passing Testcases: 38
+Failing Testcases: 2
+
+Tcas3
+& testMe(700, 1, 1, 800, 200, 1000, 0, 500, 600, 0, 1, 0) & return_value=0 & return_value=0\\
+& testMe(700, 1, 1, 800, 200, 1000, 0, 500, 600, 0, 1, 0) & alim=0 & alim=0\\
+& testMe(700, 1, 1, 800, 200, 1000, 0, 500, 600, 0, 1, 0) & inhibit_biased_climb=500 & inhibit_biased_climb=500\\
+& testMe(700, 1, 1, 800, 200, 1000, 0, 500, 600, 0, 1, 0) & non_crossing_biased_climb=False & non_crossing_biased_climb=False\\
+& testMe(700, 1, 1, 800, 200, 1000, 0, 500, 600, 0, 1, 0) & non_crossing_biased_descend=False & non_crossing_biased_descend=False\\
+& testMe(800, 1, 1, 1200, 300, 1600, 2, 740, 500, 0, 2, 1) & return_value=1 & return_value=0\\
+& testMe(800, 1, 1, 1200, 300, 1600, 2, 740, 500, 0, 2, 1) & alim=640 & alim=640\\
+& testMe(800, 1, 1, 1200, 300, 1600, 2, 740, 500, 0, 2, 1) & inhibit_biased_climb=840 & inhibit_biased_climb=840\\
+& testMe(800, 1, 1, 1200, 300, 1600, 2, 740, 500, 0, 2, 1) & non_crossing_biased_climb=False & non_crossing_biased_climb=False\\
+& testMe(800, 1, 1, 1200, 300, 1600, 2, 740, 500, 0, 2, 1) & non_crossing_biased_descend=False & non_crossing_biased_descend=False\\
+& testMe(600, 1, 1, 1000, 200, 1100, 3, 600, 600, 0, 1, 0) & return_value=0 & return_value=0\\
+& testMe(600, 1, 1, 1000, 200, 1100, 3, 600, 600, 0, 1, 0) & alim=0 & alim=0\\
+& testMe(600, 1, 1, 1000, 200, 1100, 3, 600, 600, 0, 1, 0) & inhibit_biased_climb=0 & inhibit_biased_climb=0\\
+& testMe(600, 1, 1, 1000, 200, 1100, 3, 600, 600, 0, 1, 0) & non_crossing_biased_climb=False & non_crossing_biased_climb=False\\
+& testMe(600, 1, 1, 1000, 200, 1100, 3, 600, 600, 0, 1, 0) & non_crossing_biased_descend=False & non_crossing_biased_descend=False\\
+& testMe(300, 1, 1, 500, 100, 600, 1, 400, 300, 0, 1, 1) & return_value=0 & return_value=0\\
+& testMe(300, 1, 1, 500, 100, 600, 1, 400, 300, 0, 1, 1) & alim=0 & alim=0\\
+& testMe(300, 1, 1, 500, 100, 600, 1, 400, 300, 0, 1, 1) & inhibit_biased_climb=0 & inhibit_biased_climb=0\\
+& testMe(300, 1, 1, 500, 100, 600, 1, 400, 300, 0, 1, 1) & non_crossing_biased_climb=False & non_crossing_biased_climb=False\\
+& testMe(300, 1, 1, 500, 100, 600, 1, 400, 300, 0, 1, 1) & non_crossing_biased_descend=False & non_crossing_biased_descend=False\\
+& testMe(800, 1, 1, 600, 100, 1100, 2, 500, 400, 0, 1, 0) & return_value=1 & return_value=0\\
+& testMe(800, 1, 1, 600, 100, 1100, 2, 500, 400, 0, 1, 0) & alim=640 & alim=640\\
+& testMe(800, 1, 1, 600, 100, 1100, 2, 500, 400, 0, 1, 0) & inhibit_biased_climb=500 & inhibit_biased_climb=500\\
+& testMe(800, 1, 1, 600, 100, 1100, 2, 500, 400, 0, 1, 0) & non_crossing_biased_climb=False & non_crossing_biased_climb=False\\
+& testMe(800, 1, 1, 600, 100, 1100, 2, 500, 400, 0, 1, 0) & non_crossing_biased_descend=False & non_crossing_biased_descend=False\\
+& testMe(500, 1, 1, 1000, 200, 1500, 2, 600, 500, 0, 2, 1) & return_value=0 & return_value=0\\
+& testMe(500, 1, 1, 1000, 200, 1500, 2, 600, 500, 0, 2, 1) & alim=0 & alim=0\\
+& testMe(500, 1, 1, 1000, 200, 1500, 2, 600, 500, 0, 2, 1) & inhibit_biased_climb=0 & inhibit_biased_climb=0\\
+& testMe(500, 1, 1, 1000, 200, 1500, 2, 600, 500, 0, 2, 1) & non_crossing_biased_climb=False & non_crossing_biased_climb=False\\
+& testMe(500, 1, 1, 1000, 200, 1500, 2, 600, 500, 0, 2, 1) & non_crossing_biased_descend=False & non_crossing_biased_descend=False\\
+& testMe(601, 1, 1, 998, 200, 997, 0, 1000, 1001, 0, 2, 1) & return_value=0 & return_value=0\\
+& testMe(601, 1, 1, 998, 200, 997, 0, 1000, 1001, 0, 2, 1) & alim=0 & alim=0\\
+& testMe(601, 1, 1, 998, 200, 997, 0, 1000, 1001, 0, 2, 1) & inhibit_biased_climb=1100 & inhibit_biased_climb=1100\\
+& testMe(601, 1, 1, 998, 200, 997, 0, 1000, 1001, 0, 2, 1) & non_crossing_biased_climb=False & non_crossing_biased_climb=False\\
+& testMe(601, 1, 1, 998, 200, 997, 0, 1000, 1001, 0, 2, 1) & non_crossing_biased_descend=False & non_crossing_biased_descend=False\\
+& testMe(601, 1, 1, 998, 200, 997, 0, 1000, 1101, 0, 2, 1) & return_value=2 & return_value=2\\
+& testMe(601, 1, 1, 998, 200, 997, 0, 1000, 1101, 0, 2, 1) & alim=400 & alim=400\\
+& testMe(601, 1, 1, 998, 200, 997, 0, 1000, 1101, 0, 2, 1) & inhibit_biased_climb=1100 & inhibit_biased_climb=1100\\
+& testMe(601, 1, 1, 998, 200, 997, 0, 1000, 1101, 0, 2, 1) & non_crossing_biased_climb=False & non_crossing_biased_climb=False\\
+& testMe(601, 1, 1, 998, 200, 997, 0, 1000, 1101, 0, 2, 1) & non_crossing_biased_descend=False & non_crossing_biased_descend=False\\
+Passing Testcases: 38
+Failing Testcases: 2
+
+TcasDivisionBy1
+& testMe(700, 1, 1, 800, 200, 1000, 0, 500, 600, 0, 1, 0) & 0 & 0\\
+& testMe(800, 1, 1, 1200, 300, 1600, 2, 740, 500, 0, 2, 1) & 1 & 1\\
+& testMe(600, 1, 1, 1000, 200, 1100, 3, 600, 600, 0, 1, 0) & 0 & 0\\
+& testMe(300, 1, 1, 500, 100, 600, 1, 400, 300, 0, 1, 1) & 0 & 0\\
+& testMe(800, 1, 1, 600, 100, 1100, 2, 500, 400, 0, 1, 0) & 1 & 1\\
+& testMe(500, 1, 1, 1000, 200, 1500, 2, 600, 500, 0, 2, 1) & 0 & 0\\
+& testMe(601, 1, 1, 998, 200, 997, 0, 1000, 1001, 0, 2, 1) & 0 & 2\\
+& testMe(601, 1, 1, 998, 200, 997, 0, 1000, 1101, 0, 2, 1) & 2 & 2\\
+Passing Testcases: 7
+Failing Testcases: 1
+
+TcasJustOneOutput
+& testMe(700, 1, 1, 800, 200, 1000, 0, 500, 600, 0, 1, 0) & 0 & 0\\
+& testMe(800, 1, 1, 1200, 300, 1600, 2, 740, 500, 0, 2, 1) & 1 & 1\\
+& testMe(600, 1, 1, 1000, 200, 1100, 3, 600, 600, 0, 1, 0) & 0 & 0\\
+& testMe(300, 1, 1, 500, 100, 600, 1, 400, 300, 0, 1, 1) & 0 & 0\\
+& testMe(800, 1, 1, 600, 100, 1100, 2, 500, 400, 0, 1, 0) & 1 & 1\\
+& testMe(500, 1, 1, 1000, 200, 1500, 2, 600, 500, 0, 2, 1) & 0 & 0\\
+& testMe(601, 1, 1, 998, 200, 997, 0, 1000, 1001, 0, 2, 1) & 0 & 2\\
+& testMe(601, 1, 1, 998, 200, 997, 0, 1000, 1101, 0, 2, 1) & 2 & 2\\
+Passing Testcases: 7
+Failing Testcases: 1
+
+TcasJustOneOutput2
+& testMe(700, 1, 1, 800, 200, 1000, 0, 500, 600, 0, 1, 0) & 0 & 0\\
+& testMe(800, 1, 1, 1200, 300, 1600, 2, 740, 500, 0, 2, 1) & 1 & 1\\
+& testMe(600, 1, 1, 1000, 200, 1100, 3, 600, 600, 0, 1, 0) & 0 & 0\\
+& testMe(300, 1, 1, 500, 100, 600, 1, 400, 300, 0, 1, 1) & 0 & 0\\
+& testMe(800, 1, 1, 600, 100, 1100, 2, 500, 400, 0, 1, 0) & 1 & 1\\
+& testMe(500, 1, 1, 1000, 200, 1500, 2, 600, 500, 0, 2, 1) & 0 & 0\\
+& testMe(601, 1, 1, 998, 200, 997, 0, 1000, 1001, 0, 2, 1) & 0 & 2\\
+& testMe(601, 1, 1, 998, 200, 997, 0, 1000, 1101, 0, 2, 1) & 2 & 2\\
+Passing Testcases: 7
+Failing Testcases: 1
+
+TcasJustOneOutput3
+& testMe(700, 1, 1, 800, 200, 1000, 0, 500, 600, 0, 1, 0) & 0 & 0\\
+& testMe(800, 1, 1, 1200, 300, 1600, 2, 740, 500, 0, 2, 1) & 1 & 0\\
+& testMe(600, 1, 1, 1000, 200, 1100, 3, 600, 600, 0, 1, 0) & 0 & 0\\
+& testMe(300, 1, 1, 500, 100, 600, 1, 400, 300, 0, 1, 1) & 0 & 0\\
+& testMe(800, 1, 1, 600, 100, 1100, 2, 500, 400, 0, 1, 0) & 1 & 0\\
+& testMe(500, 1, 1, 1000, 200, 1500, 2, 600, 500, 0, 2, 1) & 0 & 0\\
+& testMe(601, 1, 1, 998, 200, 997, 0, 1000, 1001, 0, 2, 1) & 0 & 0\\
+& testMe(601, 1, 1, 998, 200, 997, 0, 1000, 1101, 0, 2, 1) & 2 & 2\\
+Passing Testcases: 6
+Failing Testcases: 2
+
+TcasMultiplicationBy1
+& testMe(700, 1, 1, 800, 200, 1000, 0, 500, 600, 0, 1, 0) & 0 & 0\\
+& testMe(800, 1, 1, 1200, 300, 1600, 2, 740, 500, 0, 2, 1) & 1 & 1\\
+& testMe(600, 1, 1, 1000, 200, 1100, 3, 600, 600, 0, 1, 0) & 0 & 0\\
+& testMe(300, 1, 1, 500, 100, 600, 1, 400, 300, 0, 1, 1) & 0 & 0\\
+& testMe(800, 1, 1, 600, 100, 1100, 2, 500, 400, 0, 1, 0) & 1 & 1\\
+& testMe(500, 1, 1, 1000, 200, 1500, 2, 600, 500, 0, 2, 1) & 0 & 0\\
+& testMe(601, 1, 1, 998, 200, 997, 0, 1000, 1001, 0, 2, 1) & 0 & 2\\
+& testMe(601, 1, 1, 998, 200, 997, 0, 1000, 1101, 0, 2, 1) & 2 & 2\\
+Passing Testcases: 7
+Failing Testcases: 1
+
+Wotawa
+& wotawa(1,0) & a=0.7853975296020508 & a=0.7853975296020508\\
+& wotawa(1,0) & c=1.5707950592041016 & c=1.5707950592041016\\
+& wotawa(1,1) & a=1.0 & a=1.0\\
+& wotawa(1,1) & c=4.0 & c=4.0\\
+& wotawa(1,2) & a=-1.0 & a=-1.0\\
+& wotawa(1,2) & c=-1.0 & c=-1.0\\
+& wotawa(0,0) & a=0.0 & a=0.0\\
+& wotawa(0,0) & c=0.0 & c=0.0\\
+& wotawa(0,1) & a=0.0 & a=0.0\\
+& wotawa(0,1) & c=0.0 & c=0.0\\
+& wotawa(0,2) & a=-1.0 & a=-1.0\\
+& wotawa(0,2) & c=-1.0 & c=-1.0\\
+Passing Testcases: 12
+Failing Testcases: 0
+

@@ -1,0 +1,2 @@
+calc(3,"square")
+calc(3,"cube")

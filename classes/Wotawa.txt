@@ -1,0 +1,6 @@
+wotawa(1,0)
+wotawa(1,1)
+wotawa(1,2)
+wotawa(0,0)
+wotawa(0,1)
+wotawa(0,2)

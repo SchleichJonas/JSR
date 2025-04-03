@@ -1,0 +1,5 @@
+findMiddle(1,2,3)
+findMiddle(1,1,1)
+findMiddle(3,2,3)
+findMiddle(3,2,1)
+findMiddle(3,5,1)
