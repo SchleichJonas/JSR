@@ -7,7 +7,7 @@ import numpy
 def read_csv_group_headers(file_path):
     with open(file_path, newline='', encoding='utf-8') as csvfile:
         reader = csv.reader(csvfile)
-        headers = next(reader)  # Read the first row as headers
+        headers = next(reader)
         
         grouped_data = defaultdict(list)
         
@@ -20,7 +20,7 @@ def read_csv_group_headers(file_path):
 
 def get_entries_by_base(grouped_data, base_name):
     """Retrieve all entries that match the base name (ignoring the number)."""
-    pattern = re.compile(rf"^{re.escape(base_name)}:\d+$")  # Match "base_name:NUMBER"
+    pattern = re.compile(rf"^{re.escape(base_name)}:\d+$")
     matching_entries = {key: values for key, values in grouped_data.items() if pattern.match(key)}
     return matching_entries
 
@@ -268,41 +268,32 @@ if __name__ == "__main__":
     prefix = "at.tugraz.ist.stracke.jsr."
     
     classes_just_one_output = ["BMIJustOneOutput", "ExpintJustOneOutput", "FisherJustOneOutput", "GammqJustOneOutput", "LuhnJustOneOutput", "MiddleJustOneOutput", "TcasJustOneOutput", "BMIJustOneOutput2", "ExpintJustOneOutput2", "FisherJustOneOutput2", "GammqJustOneOutput2", "LuhnJustOneOutput2", "MiddleJustOneOutput2", "TcasJustOneOutput2", "BMIJustOneOutput3", "ExpintJustOneOutput3", "FisherJustOneOutput3", "GammqJustOneOutput3"]
-    #errors_just_one_output = ["BMIJustOneOutput:17", "ExpintJustOneOutput:43", "FisherJustOneOutput:10", "GammqJustOneOutput:37", "LuhnJustOneOutput:14", "MiddleJustOneOutput:6", "TcasJustOneOutput:54"]
     classes_just_one_output.sort()
     
     classes_just_one_output_except_expint_and_tcas = ["BMIJustOneOutput", "FisherJustOneOutput", "GammqJustOneOutput", "LuhnJustOneOutput", "MiddleJustOneOutput", "BMIJustOneOutput2", "ExpintJustOneOutput2", "FisherJustOneOutput2", "GammqJustOneOutput2", "LuhnJustOneOutput2", "MiddleJustOneOutput2", "TcasJustOneOutput2", "BMIJustOneOutput3", "ExpintJustOneOutput3", "FisherJustOneOutput3", "GammqJustOneOutput3"]
-    #errors_just_one_output = ["BMIJustOneOutput:17", "ExpintJustOneOutput:43", "FisherJustOneOutput:10", "GammqJustOneOutput:37", "LuhnJustOneOutput:14", "MiddleJustOneOutput:6", "TcasJustOneOutput:54"]
     classes_just_one_output_except_expint_and_tcas.sort()
     
     classes_division_by_1 = ["BMIJustOneOutput", "ExpintDivisionBy1", "FisherJustOneOutput", "GammqJustOneOutput", "LuhnJustOneOutput", "MiddleJustOneOutput", "TcasDivisionBy1", "BMIJustOneOutput2", "ExpintJustOneOutput2", "FisherJustOneOutput2", "GammqJustOneOutput2", "LuhnJustOneOutput2", "MiddleJustOneOutput2", "TcasJustOneOutput2", "BMIJustOneOutput3", "ExpintJustOneOutput3", "FisherJustOneOutput3", "GammqJustOneOutput3"]
-    #classes_division_by_1 = ["BMIJustOneOutput", "ExpintDivisionBy1", "FisherJustOneOutput", "GammqJustOneOutput", "LuhnJustOneOutput", "MiddleJustOneOutput", "TcasDivisionBy1"]
     classes_division_by_1.sort()
     
     classes_division_by_1_justExpint = ["BMIJustOneOutput", "ExpintDivisionBy1", "FisherJustOneOutput", "GammqJustOneOutput", "LuhnJustOneOutput", "MiddleJustOneOutput", "TcasJustOneOutput", "BMIJustOneOutput2", "ExpintJustOneOutput2", "FisherJustOneOutput2", "GammqJustOneOutput2", "LuhnJustOneOutput2", "MiddleJustOneOutput2", "TcasJustOneOutput2", "BMIJustOneOutput3", "ExpintJustOneOutput3", "FisherJustOneOutput3", "GammqJustOneOutput3"]
-    #classes_division_by_1 = ["BMIJustOneOutput", "ExpintDivisionBy1", "FisherJustOneOutput", "GammqJustOneOutput", "LuhnJustOneOutput", "MiddleJustOneOutput", "TcasDivisionBy1"]
     classes_division_by_1_justExpint.sort()
     
     classes_multiplication_by_1 = ["BMIJustOneOutput", "ExpintMultiplicationBy1", "FisherJustOneOutput", "GammqJustOneOutput", "LuhnJustOneOutput", "MiddleJustOneOutput", "TcasMultiplicationBy1", "BMIJustOneOutput2", "ExpintJustOneOutput2", "FisherJustOneOutput2", "GammqJustOneOutput2", "LuhnJustOneOutput2", "MiddleJustOneOutput2", "TcasJustOneOutput2", "BMIJustOneOutput3", "ExpintJustOneOutput3", "FisherJustOneOutput3", "GammqJustOneOutput3"]
-    #classes_multiplication_by_1 = ["BMIJustOneOutput", "ExpintMultiplicationBy1", "FisherJustOneOutput", "GammqJustOneOutput", "LuhnJustOneOutput", "MiddleJustOneOutput", "TcasMultiplicationBy1"]
     classes_multiplication_by_1.sort()
    
     classes_multiplication = ["BMIJustOneOutput", "ExpintMultiplicationBy1", "FisherJustOneOutput", "GammqJustOneOutput", "LuhnJustOneOutput", "MiddleJustOneOutput", "TcasMultiplication", "BMIJustOneOutput2", "ExpintJustOneOutput2", "FisherJustOneOutput2", "GammqJustOneOutput2", "LuhnJustOneOutput2", "MiddleJustOneOutput2", "TcasJustOneOutput2", "BMIJustOneOutput3", "ExpintJustOneOutput3", "FisherJustOneOutput3", "GammqJustOneOutput3"]
-    #classes_multiplication_by_1 = ["BMIJustOneOutput", "ExpintMultiplicationBy1", "FisherJustOneOutput", "GammqJustOneOutput", "LuhnJustOneOutput", "MiddleJustOneOutput", "TcasMultiplicationBy1"]
     classes_multiplication.sort()
 
    
     
     classes_multiplication_by_1_justExpint = ["BMIJustOneOutput", "ExpintMultiplicationBy1", "FisherJustOneOutput", "GammqJustOneOutput", "LuhnJustOneOutput", "MiddleJustOneOutput", "TcasJustOneOutput", "BMIJustOneOutput2", "ExpintJustOneOutput2", "FisherJustOneOutput2", "GammqJustOneOutput2", "LuhnJustOneOutput2", "MiddleJustOneOutput2", "TcasJustOneOutput2", "BMIJustOneOutput3", "ExpintJustOneOutput3", "FisherJustOneOutput3", "GammqJustOneOutput3"]
-    #classes_division_by_1 = ["BMIJustOneOutput", "ExpintDivisionBy1", "FisherJustOneOutput", "GammqJustOneOutput", "LuhnJustOneOutput", "MiddleJustOneOutput", "TcasDivisionBy1"]
     classes_multiplication_by_1_justExpint.sort()
     
     classes_second_testsuite = ["Armstrong", "BubbleSort", "ChineseRemainder", "Factorial", "GCD", "InverseCounter", "Isprime", "LCM", "LogExp", "Minimax", "ModInverse", "Mult", "RSA", "RussianPeasant", "Sqrt"]
-    #errors_second_testsuite = ["Armstrong:34", "BubbleSort:35", "ChineseRemainder:26", "Factorial:7", "GCD:12", "InverseCounter:12", "Isprime:10", "LCM:10", "LogExp:12", "Minimax:48", "ModInverse:30", "Mult:17", "RSA:14", "RussianPeasant:19", "Sqrt:17"]
     classes_second_testsuite.sort()
     
     classes_fixed = ["BMI", "Expint", "Fisher", "Gammq", "Luhn", "Middle", "Tcas", "BMI2", "Expint2", "Fisher2", "Gammq2", "Luhn2", "Middle2", "Tcas2", "BMI3", "Expint3", "Fisher3", "Gammq3"]
-    #errors_fixed = ["BMI:20", "Expint:46", "Fisher:15", "Gammq:38", "Luhn:14", "Middle:6", "Tcas:61"]
     classes_fixed.sort()
     
     table_name = "fixedTable"
