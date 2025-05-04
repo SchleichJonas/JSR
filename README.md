@@ -370,7 +370,7 @@ There are 2 python scrpts included, `SFL.py` and `testall.py`.
 To run the script the following dependencies are necessary:
 * Python3
 * jpype (required for `testall.py`)
-* numpy (required for SFL.py)
+* numpy (required for `SFL.py`)
 
 `SFL.py` has some predefined test suites that it is looking for in the sfl matrix and computes HitRatio@1, HitRatio@5 
 and WastedEffort for Ochiai, Tarantula and Sarhan-Beszédes. It is automatically looking for lines with `//Error` to
