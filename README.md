@@ -61,16 +61,16 @@ Please note that the installation process is subject to change as the project pr
 * Java JDK 11 
   * make sure it is set as the default JDK version on your system
   * make sure, `JAVA_HOME` points to your default JDK
-* Maven (required for building Slicer4J)
-* Gradle (required for building this project)
+* Maven 3.8.7 (required for building Slicer4J)
+* Gradle 7.6 (required for building this project)
 
 ### 2. JSR Installation
 
 1. Clone this repository and navigate to the project root directory
 
 ```shell
-git clone git@github.com:Lms24/JSR.git 
-cd jsr
+git git@github.com:SchleichJonas/JSR.git 
+cd JSR
 ```
 
 2. Execute the installation script to clone and build Slicer4J. 
