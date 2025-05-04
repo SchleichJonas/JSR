@@ -346,11 +346,13 @@ Optional Parameters:
                           and method coverage calculation
 ```
 
-A sample SFL call is provided below. The `sfl` commands generates two CSV files: 
-* `outcomeMatrix.csv` containing information about the outcome (pass/fail) of each executed test case.
-* `coverageMatrix.csv` containing the coverage data of each test case:
-  * A row of a _passing_ test case shows the _line-covered_ lines of the test case
-  * A row of a _failing_ test case shows the _checked-covered_ lines of the test case
+A sample SFL call is provided below. The `sfl` commands generates 4 reports: 
+* `Checked coverage report` using slicing for everything.
+* `JaCoCo coverage report` using no slicing at all.
+* `Line coverage report` using JaCoCo to create a standard report without slicing.
+* `Mixed coverage report` which uses a combination of checked and line coverage. Only failing test are being sliced.
+
+The current `sfl` command tests one variable in each junit test.
 
 ```shell
 java -jar JSR-CLI-1.0-SNAPSHOT.jar jsr sfl
@@ -363,6 +365,30 @@ java -jar JSR-CLI-1.0-SNAPSHOT.jar jsr sfl
 JSR-Core/src/test/resources/smallProject/src/test/java
 ```
 
+### Python scripts
+There are 2 python scrpts included, `SFL.py` and `testall.py`.
+To run the script the following dependencies are necessary:
+* Python3
+* jpype (required for `testall.py`)
+* numpy (required for SFL.py)
+
+`SFL.py` has some predefined test suites that it is looking for in the sfl matrix and computes HitRatio@1, HitRatio@5 
+and WastedEffort for Ochiai, Tarantula and Sarhan-Beszédes. It is automatically looking for lines with `//Error` to
+identify the lines with errors in the source code. It creates .txt files for each defined test suite that include
+all metrics formated in a latex table.
+
+`testall.py` tests all java classes in the classes folder for their original and altered outputs. The variables it
+tests for can be changed by editing the .var files for each class. It then generates rows in latex table format with
+their inputs and outputs.
+
+Those 2 scripts can be run with the following commands
+```shell
+python3 SFL.py
+```
+```shell
+cd classes/
+python3 testall.py
+```
 
 ## Credits
 ### Libraries and Tools 
