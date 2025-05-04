@@ -387,6 +387,7 @@ python3 SFL.py
 ```
 ```shell
 cd classes/
+javac *.java #To compile all java files in that folder
 python3 testall.py
 ```
 
